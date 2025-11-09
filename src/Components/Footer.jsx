@@ -11,7 +11,8 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 const Footer = () => {
   return (
-    <div className="bg-[#F6F6F6] rounded-tr-full">
+    <div>
+      <div className="bg-[#F6F6F6] rounded-tr-full">
       <footer className="footer flex-row md:flex-col md:justify-around  mt-25 sm:footer-horizontal items-center text-base-content  rounded-tl-6xl p-10">
         <nav className="space-y-2">
           <div className="w-[170px]">
@@ -77,6 +78,10 @@ const Footer = () => {
           </fieldset>
         </nav>
       </footer>
+    </div>
+    <div className="bg-accent text-white py-3 px-2">
+      <h1 className="text-center heading-Font font-bold">Copyright @2025. All rights Reserve. Carefully Crafted By <span className="text-secondary underline">PetBond</span></h1>
+    </div>
     </div>
   );
 };

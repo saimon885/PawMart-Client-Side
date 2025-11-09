@@ -47,7 +47,7 @@ const Banner = () => {
               <div className="hero-overlay"></div>
               <div className="hero-content text-neutral-content text-center">
                 <div className="max-w-md">
-                  <h1 className="mb-5 text-5xl font-bold">
+                  <h1 className="mb-5 text-5xl font-bold heading-Font">
                     Find Your Furry Friend Today!
                   </h1>
                 </div>
@@ -65,7 +65,7 @@ const Banner = () => {
               <div className="hero-overlay"></div>
               <div className="hero-content text-neutral-content text-center">
                 <div className="max-w-md">
-                  <h1 className="mb-5 text-5xl font-bold">
+                  <h1 className="mb-5 text-5xl font-bold heading-Font">
                     Adopt, Don’t Shop — Give a Pet a Home.
                   </h1>
                 </div>
@@ -83,7 +83,7 @@ const Banner = () => {
               <div className="hero-overlay"></div>
               <div className="hero-content text-neutral-content text-center">
                 <div className="max-w-md">
-                  <h1 className="mb-5 text-5xl font-bold">
+                  <h1 className="mb-5 text-5xl font-bold heading-Font">
                     Because Every Pet Deserves Love and Care.
                   </h1>
                 </div>
