@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1001,
+    "name": "Golden Retriever Puppy (Adoption)",
+    "category": "Pets (Adoption)",
+    "price": "Negotiable",
+    "location": "Dhaka, Mirpur",
+    "description": "৩ মাসের স্বাস্থ্যবান গোল্ডেন রিট্রিভার, সব টিকা দেওয়া আছে। শুধু সত্যিকারের পেট-প্রেমীরা যোগাযোগ করুন।",
+    "image": "url_to_image_1.jpg",
+    "email": "adopt.golden@example.com",
+    "date": "2025-11-08"
+  },
+  {
+    "id": 1002,
+    "name": "Royal Canin Maxi Adult Dog Food (15kg)",
+    "category": "Pet Food",
+    "price": 6500,
+    "location": "Chattogram, GEC",
+    "description": "১ বছরের বেশি বয়স্ক বড় প্রজাতির কুকুরের জন্য প্রিমিয়াম ড্রাই ফুড। একদম নতুন ও সিল করা প্যাকেট।",
+    "image": "url_to_image_2.jpg",
+    "email": "food.seller@example.com",
+    "date": "2025-11-09"
+  },
+  {
+    "id": 1003,
+    "name": "Cat Scratching Post (Large)",
+    "category": "Accessories",
+    "price": 2200,
+    "location": "Khulna, Shiromoni",
+    "description": "বিড়ালের নখ ধার দেওয়ার জন্য টেকসই ও মজবুত স্ক্র্যাচিং পোস্ট। তিনটি স্তর এবং খেলার জন্য বল সহ।",
+    "image": "url_to_image_3.jpg",
+    "email": "pet.gear@example.com",
+    "date": "2025-11-07"
+  },
+  {
+    "id": 1004,
+    "name": "Anti-Tick and Flea Shampoo (500ml)",
+    "category": "Pet Care Products",
+    "price": 750,
+    "location": "Sylhet, Zindabazar",
+    "description": "কুকুর ও বিড়ালের জন্য বিশেষ শ্যাম্পু যা উকুন ও ফ্লি দূর করতে সাহায্য করে। ভেষজ উপাদান দিয়ে তৈরি।",
+    "image": "url_to_image_4.jpg",
+    "email": "care.products@example.com",
+    "date": "2025-11-09"
+  },
+  {
+    "id": 1005,
+    "name": "Persian Kitten (Male)",
+    "category": "Pets (Adoption)",
+    "price": 15000,
+    "location": "Rajshahi, Motihar",
+    "description": "২ মাসের সুন্দর পার্সিয়ান ক্যাট, ডিওয়ার্মিং করা হয়েছে। ঘরোয়া পরিবেশের জন্য উপযুক্ত।",
+    "image": "url_to_image_5.jpg",
+    "email": "kitten.home@example.com",
+    "date": "2025-11-06"
+  },
+  {
+    "id": 1006,
+    "name": "Fish Tank Ornament Set",
+    "category": "Accessories",
+    "price": 850,
+    "location": "Barishal, Sadar Road",
+    "description": "অ্যাকোয়ারিয়ামের জন্য ৫ পিসের ডেকোরেশন সেট, কোনো ধারালো কোণা নেই।",
+    "image": "url_to_image_6.jpg",
+    "email": "aquarium.deco@example.com",
+    "date": "2025-11-08"
+  },
+  {
+    "id": 1007,
+    "name": "Whiskas Pouch - Tuna Flavor (12 Pack)",
+    "category": "Pet Food",
+    "price": 980,
+    "location": "Rangpur, College Road",
+    "description": "বিড়ালের জন্য ভেজা খাবার, টুনা ফ্লেভার। তারিখের মেয়াদ অনেক আছে।",
+    "image": "url_to_image_7.jpg",
+    "email": "wet.food@example.com",
+    "date": "2025-11-07"
+  }
+]
