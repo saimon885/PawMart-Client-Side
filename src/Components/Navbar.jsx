@@ -1,7 +1,29 @@
-import React from "react";
+import React, { use, useState } from "react";
 import Logo from "../assets/PetLogo.png";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../AuthProvider/AuthContext";
+import { toast } from "react-toastify";
 const Navbar = () => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
+  const { user, SignOutUser } = use(AuthContext);
+  const LogOutUser = () => {
+    SignOutUser()
+      .then(() => {
+        toast.success("LogOut Successful.");
+      })
+      .catch((error) => {
+        toast.error(error.code);
+      });
+  };
   const Links = (
     <>
       <li>
@@ -25,7 +47,11 @@ const Navbar = () => {
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="btn" className="btn btn-ghost md:hidden lg:hidden">
+          <div
+            tabIndex={0}
+            role="btn"
+            className="btn btn-ghost md:hidden lg:hidden"
+          >
             <div>
               <label className=" swap swap-rotate">
                 {/* this hidden checkbox controls the state */}
@@ -77,16 +103,44 @@ const Navbar = () => {
             {Links}
           </ul>{" "}
         </div>
-        <Link to={"/"}  className="w-[170px]">
-          <img  className="w-full" src={Logo} alt="" />
+        <Link to={"/"} className="w-[170px]">
+          <img className="w-full" src={Logo} alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden md:flex lg:flex">
         <ul className="menu menu-horizontal">{Links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn btn-primary">LogIn</a>
-        <a className="btn btn-primary">Register</a>
+        {user ? (
+          <div className="flex items-center gap-2">
+            <div className="rounded-full relative inline-block w-[70px] p-2 mr-2">
+              <img
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                className="rounded-full border-2 border-green-700 mx-auto"
+                src={`${user ? user.photoURL : ""}`}
+                alt=""
+              />
+              {user && isHovering && (
+                <div className="absolute -top-2  md:-top-1 right-14 md:right-16 p-5  z-10 flex-nowrap">
+                  {user.displayName}
+                </div>
+              )}
+            </div>
+            <button onClick={LogOutUser} className="btn btn-primary">
+              LogOut
+            </button>
+          </div>
+        ) : (
+          <div>
+            <Link to={"/login"} className="btn btn-primary">
+              LogIn
+            </Link>
+            <Link to={"/register"} className="btn ml-2 btn-primary">
+              Register
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

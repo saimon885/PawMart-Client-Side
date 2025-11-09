@@ -1,12 +1,18 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../MainLayout/MainLayout";
 import Home from "../Components/Home/Home";
+import Login from "../Components/Form/Login";
+import Register from "../Components/Form/Register";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     errorElement: <span>404 page Not found</span>,
     Component: MainLayout,
-    children: [{ index: true, Component: Home }],
+    children: [
+      { index: true, Component: Home },
+      { path: "login", Component: Login },
+      { path: "register", Component: Register },
+    ],
   },
 ]);
