@@ -32,21 +32,26 @@ const Navbar = () => {
       <li>
         <NavLink>Pets & Supplies</NavLink>
       </li>
-      <li>
-        <NavLink>Add Listing</NavLink>
-      </li>
-      <li>
-        <NavLink>My Listings</NavLink>
-      </li>
-      <li>
-        <NavLink>My Orders</NavLink>
-      </li>
+
+      {user && (
+        <div className="lg:flex">
+          <li>
+            <NavLink>Add Listing</NavLink>
+          </li>
+          <li>
+            <NavLink>My Listings</NavLink>
+          </li>
+          <li>
+            <NavLink>My Orders</NavLink>
+          </li>
+        </div>
+      )}
     </>
   );
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
-        <div className="dropdown">
+        <div className="dropdown z-10">
           <div
             tabIndex={0}
             role="btn"

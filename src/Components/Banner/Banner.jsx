@@ -38,7 +38,7 @@ const Banner = () => {
         >
           <SwiperSlide>
             <div
-              className="hero min-h-screen"
+              className="hero min-h-screen "
               style={{
                 backgroundImage:
                   "url(https://i.ibb.co.com/7N1mZsxd/Banner1.jpg)",
@@ -84,7 +84,7 @@ const Banner = () => {
               <div className="hero-content text-neutral-content text-center">
                 <div className="max-w-md">
                   <h1 className="mb-5 text-5xl font-bold">
-                    Find Your Furry Friend Today!
+                    Because Every Pet Deserves Love and Care.
                   </h1>
                 </div>
               </div>
