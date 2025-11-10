@@ -14,7 +14,7 @@ const Category = () => {
   return (
     <div className="my-8">
       <div>
-        <h2 className="text-2xl text-center font-medium mb-8">Select Your Category</h2>
+        <h2 className="text-2xl text-center font-bold mb-8">Select Your Category</h2>
       </div>
       <div className="space-x-4 flex justify-center items-center">
         {CategoryData.map((data) => (
