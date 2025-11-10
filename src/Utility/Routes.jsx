@@ -6,11 +6,13 @@ import Register from "../Components/Form/Register";
 import Error404 from "../Error/Error404";
 import RecentCategoryData from "../Pages/RecentCategoryData";
 import HomeLayout from "../MainLayout/HomeLayout";
+import Loading from "../Pages/Loading";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     errorElement: <Error404></Error404>,
+    hydrateFallbackElement:<Loading></Loading>,
     Component: MainLayout,
     children: [
       { index: true, Component: Home },
@@ -26,6 +28,7 @@ export const router = createBrowserRouter([
       {
         path: "/:name",
         loader: () => fetch("http://localhost:3000/petListdata"),
+        hydrateFallbackElement: <Loading></Loading>,
         Component: RecentCategoryData,
       },
     ],
