@@ -14,9 +14,9 @@ const SingleRecentCategory = ({ petData }) => {
         data-aos="fade-up"
         className=" shadow-sm rounded-2xl border p-3  space-y-2  h-full"
       >
-        <div className=" w-[400px] h-[270px] bg-white p-1 rounded-2xl  mx-auto">
+        <div className=" md:w-[380px] h-[270px] bg-white p-1 rounded-2xl">
           <img
-            className="w-full h-full  mx-auto rounded-2xl "
+            className="w-full h-full mx-auto rounded-2xl "
             src={image}
             alt=""
           />

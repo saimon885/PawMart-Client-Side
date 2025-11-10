@@ -28,14 +28,14 @@ const SingleListingDetails = ({ data }) => {
       data-aos="fade-up"
       className=" bg-white flex flex-col lg:flex-row py-8 shadow-sm rounded-2xl space-y-4 md:space-y-0 px-5 items-center gap-10 md:gap-20  border border-dotted"
     >
-      <div className="w-full bg-white  lg:w-[600px] border-b md:border-0 pb-6 md:pb-0 border-dashed h-[300] lg:h-[450px]  p-4">
+      <div className="w-full bg-white  lg:w-[1000px] border-b md:border-0 pb-6 md:pb-0 border-dashed h-[300] lg:h-[400px]  p-4">
         <img
           className=" mx-auto w-full h-full  rounded-2xl "
           src={image}
           alt=""
         />
       </div>
-      <div className="space-y-3 bg-white rounded-2xl shadow-sm p-4">
+      <div className="space-y-3 w-full bg-white rounded-2xl shadow-sm p-4">
         <h1 className="text-2xl font-bold">{name}</h1>
 
         <p className="border-b border-[#95a5a6] pb-5">

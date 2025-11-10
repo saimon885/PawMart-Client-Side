@@ -30,26 +30,26 @@ const Navbar = () => {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink>Pets & Supplies</NavLink>
+        {/* <NavLink>Pets & Supplies</NavLink> */}
       </li>
 
       {user && (
         <div className="lg:flex">
           <li>
-            <NavLink>Add Listing</NavLink>
+            <NavLink to={"/addlistdata"}>Add Listing</NavLink>
           </li>
           <li>
-            <NavLink>My Listings</NavLink>
+            {/* <NavLink>My Listings</NavLink> */}
           </li>
           <li>
-            <NavLink>My Orders</NavLink>
+            {/* <NavLink>My Orders</NavLink> */}
           </li>
         </div>
       )}
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar">
       <div className="navbar-start">
         <div className="dropdown z-10">
           <div
@@ -141,7 +141,7 @@ const Navbar = () => {
             <Link to={"/login"} className="btn btn-primary">
               LogIn
             </Link>
-            <Link to={"/register"} className="btn ml-2 btn-primary">
+            <Link to={"/register"} className="btn  ml-2 btn-primary">
               Register
             </Link>
           </div>

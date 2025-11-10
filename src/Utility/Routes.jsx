@@ -8,6 +8,7 @@ import RecentCategoryData from "../Pages/RecentCategoryData";
 import HomeLayout from "../MainLayout/HomeLayout";
 import Loading from "../Pages/Loading";
 import ListingDetails from "../Pages/ListingDetails";
+import AddListingPage from "../AnotherPages/AddListingPage";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
           fetch(`http://localhost:3000/petListdata/details/${params.id}`),
         element: <ListingDetails></ListingDetails>
       },
+      {
+        path:"addlistdata",
+        element : <AddListingPage></AddListingPage>
+      }
       
     ],
   },

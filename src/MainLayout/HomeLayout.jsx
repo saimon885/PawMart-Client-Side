@@ -10,7 +10,7 @@ import AddTwoBanner from "../Components/Banner/AddTwoBanner";
 
 const HomeLayout = () => {
   return (
-    <div>
+    <div className="mx-5 md:mx-10">
       <Navbar></Navbar>
       <Banner></Banner>
       <Category></Category>

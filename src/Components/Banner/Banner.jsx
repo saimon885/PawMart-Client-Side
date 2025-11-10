@@ -16,7 +16,7 @@ const Banner = () => {
   //   }, []);
   return (
     <div>
-      <div className="">
+      <div className="mt-5">
         <Swiper
           modules={[Navigation, Pagination]}
           spaceBetween={30}

@@ -10,7 +10,7 @@ const LowerFirstBanner = () => {
       <div>
         <div className="hero">
           <div className="hero-content flex-col lg:flex-row">
-            <img src={banner} className="max-w-sm rounded-lg shadow-2xl" />
+            <img src={banner} className="w-full md:max-w-sm rounded-lg shadow-2xl" />
             <div className="md:ml-8">
               <p className="py-2 flex gap-4 ">
                 <span className="text-[17px] font-semibold">
