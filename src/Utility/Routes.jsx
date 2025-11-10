@@ -9,6 +9,7 @@ import HomeLayout from "../MainLayout/HomeLayout";
 import Loading from "../Pages/Loading";
 import ListingDetails from "../Pages/ListingDetails";
 import AddListingPage from "../AnotherPages/AddListingPage";
+import AllListData from "../AnotherPages/AllListData";
 
 export const router = createBrowserRouter([
   {
@@ -25,13 +26,17 @@ export const router = createBrowserRouter([
         path: "details/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/petListdata/details/${params.id}`),
-        element: <ListingDetails></ListingDetails>
+        element: <ListingDetails></ListingDetails>,
       },
       {
-        path:"addlistdata",
-        element : <AddListingPage></AddListingPage>
-      }
-      
+        path: "addlistdata",
+        element: <AddListingPage></AddListingPage>,
+      },
+      {
+        path: "allListData",
+        loader: () => fetch("http://localhost:3000/petListdata"),
+        Component: AllListData,
+      },
     ],
   },
   {

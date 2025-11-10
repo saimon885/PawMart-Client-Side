@@ -30,7 +30,7 @@ const Navbar = () => {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        {/* <NavLink>Pets & Supplies</NavLink> */}
+        <NavLink to={"/allListData"}>Pets & Supplies</NavLink>
       </li>
 
       {user && (
@@ -38,18 +38,14 @@ const Navbar = () => {
           <li>
             <NavLink to={"/addlistdata"}>Add Listing</NavLink>
           </li>
-          <li>
-            {/* <NavLink>My Listings</NavLink> */}
-          </li>
-          <li>
-            {/* <NavLink>My Orders</NavLink> */}
-          </li>
+          <li>{/* <NavLink>My Listings</NavLink> */}</li>
+          <li>{/* <NavLink>My Orders</NavLink> */}</li>
         </div>
       )}
     </>
   );
   return (
-    <div className="navbar">
+    <div className="navbar border-b mb-8">
       <div className="navbar-start">
         <div className="dropdown z-10">
           <div

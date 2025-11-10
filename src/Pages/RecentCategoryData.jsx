@@ -7,7 +7,9 @@ const RecentCategoryData = () => {
   const Recentdata = useLoaderData();
   // console.log(Recentdata);
   const [recent, setRecent] = useState([]);
+  const fixedRecent = recent.slice(0, 6);
   // console.log(recent);
+  console.log(fixedRecent);
 
   useEffect(() => {
     if (Recentdata && Array.isArray(Recentdata)) {
@@ -16,9 +18,13 @@ const RecentCategoryData = () => {
     }
   }, [name, Recentdata]);
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-      {recent.map((petData) => (
-        <SingleRecentCategory key={petData._id} petData={petData}></SingleRecentCategory>
+    
+    <div className="grid grid-cols-1 border-b border-dotted border-accent pb-5 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {fixedRecent.map((petData) => (
+        <SingleRecentCategory
+          key={petData._id}
+          petData={petData}
+        ></SingleRecentCategory>
       ))}
     </div>
   );

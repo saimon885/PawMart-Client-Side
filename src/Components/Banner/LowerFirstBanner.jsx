@@ -5,7 +5,7 @@ const LowerFirstBanner = () => {
   return (
     <div>
       <div className="">
-        <p className="text-3xl text-center font-bold mt-8 mb-3 ">Why Adopt from PawMart?</p>
+        <p className="text-3xl text-center font-bold mt-15 mb-3 ">Why Adopt from PawMart?</p>
       </div>
       <div>
         <div className="hero">

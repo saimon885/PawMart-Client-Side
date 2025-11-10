@@ -1,15 +1,55 @@
-import React from "react";
+import React, { use } from "react";
+import { AuthContext } from "../AuthProvider/AuthContext";
+import { format } from "date-fns";
+import { toast } from "react-toastify";
 
 const AddListingPage = () => {
+  const { user } = use(AuthContext);
   const handleAddList = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const category = e.target.category.value;
     const price = e.target.price.value;
-    const Location = e.target.location.value;
+    const location = e.target.location.value;
     const description = e.target.description.value;
-    const Image = e.target.imageurl.value;
-    console.log({ name, category, price, Location, description, Image });
+    const image = e.target.imageurl.value;
+    const email = user?.email;
+    const currntDate = new Date();
+    const date = format(currntDate, "dd-MM-yyyy");
+    // console.log({
+    //   name,
+    //   category,
+    //   price,
+    //   location,
+    //   description,
+    //   image,
+    //   email,
+    //   date,
+    // });
+    const NewAddList = {
+      name,
+      category,
+      price,
+      location,
+      description,
+      image,
+      email,
+      date,
+    };
+    fetch("http://localhost:3000/petListdata", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(NewAddList),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("List Added Successful.");
+          e.target.reset();
+        }
+      });
   };
   return (
     <div>
