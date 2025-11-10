@@ -5,9 +5,9 @@ import SingleRecentCategory from "./SingleRecentCategory";
 const RecentCategoryData = () => {
   const { name } = useParams();
   const Recentdata = useLoaderData();
-  console.log(Recentdata);
+  // console.log(Recentdata);
   const [recent, setRecent] = useState([]);
-  console.log(recent);
+  // console.log(recent);
 
   useEffect(() => {
     if (Recentdata && Array.isArray(Recentdata)) {
@@ -18,7 +18,7 @@ const RecentCategoryData = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {recent.map((petData) => (
-        <SingleRecentCategory petData={petData}></SingleRecentCategory>
+        <SingleRecentCategory key={petData._id} petData={petData}></SingleRecentCategory>
       ))}
     </div>
   );

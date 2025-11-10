@@ -7,18 +7,26 @@ import Error404 from "../Error/Error404";
 import RecentCategoryData from "../Pages/RecentCategoryData";
 import HomeLayout from "../MainLayout/HomeLayout";
 import Loading from "../Pages/Loading";
+import ListingDetails from "../Pages/ListingDetails";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     errorElement: <Error404></Error404>,
-    hydrateFallbackElement:<Loading></Loading>,
+    hydrateFallbackElement: <Loading></Loading>,
     Component: MainLayout,
     children: [
       { index: true, Component: Home },
       { path: "login", Component: Login },
 
       { path: "register", Component: Register },
+      {
+        path: "details/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/petListdata/details/${params.id}`),
+        element: <ListingDetails></ListingDetails>
+      },
+      
     ],
   },
   {

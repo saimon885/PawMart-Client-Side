@@ -15,7 +15,7 @@ const Register = () => {
     const photo = e.target.photourl.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log({ name, photo, email, password });
+    // console.log({ name, photo, email, password });
     const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])/;
     if (!passwordRegex.test(password)) {
       alert("Please Provide your Strong Password!");

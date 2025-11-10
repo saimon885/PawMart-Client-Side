@@ -5,7 +5,7 @@ import { FcCurrencyExchange } from "react-icons/fc";
 import { Link } from "react-router";
 
 const SingleRecentCategory = ({ petData }) => {
-  console.log(petData);
+  // console.log(petData);
   const { category, date,_id, name, description, email, image, location, price } =
     petData;
   return (
