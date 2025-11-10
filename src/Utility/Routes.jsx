@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/:name",
-        loader: () => fetch("/Recent.json"),
+        loader: () => fetch("http://localhost:3000/petListdata"),
         Component: RecentCategoryData,
       },
     ],

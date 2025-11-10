@@ -5,8 +5,20 @@ import SingleRecentCategory from "./SingleRecentCategory";
 const RecentCategoryData = () => {
   const { name } = useParams();
   const Recentdata = useLoaderData();
+  // const [homedata, sethomedata] = useState([])
+  console.log(Recentdata);
   const [recent, setRecent] = useState([]);
   console.log(recent);
+
+  // useEffect (()=>{
+  //   fetch('http://localhost:3000/petListdata')
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     console.log("after get", data);
+  //     sethomedata
+  //   })
+
+  // },[])
   useEffect(() => {
     if (Recentdata && Array.isArray(Recentdata)) {
       const filterData = Recentdata.filter((data) => data.category == name);
