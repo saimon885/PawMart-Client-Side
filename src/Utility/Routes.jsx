@@ -10,6 +10,8 @@ import Loading from "../Pages/Loading";
 import ListingDetails from "../Pages/ListingDetails";
 import AddListingPage from "../AnotherPages/AddListingPage";
 import AllListData from "../AnotherPages/AllListData";
+import MyListing from "../AnotherPages/MyListing";
+import PrivetRouter from "../Privetrouter/PrivetRouter";
 
 export const router = createBrowserRouter([
   {
@@ -26,16 +28,32 @@ export const router = createBrowserRouter([
         path: "details/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/petListdata/details/${params.id}`),
-        element: <ListingDetails></ListingDetails>,
+        element: (
+          <PrivetRouter>
+            <ListingDetails></ListingDetails>
+          </PrivetRouter>
+        ),
       },
       {
         path: "addlistdata",
-        element: <AddListingPage></AddListingPage>,
+        element: (
+          <PrivetRouter>
+            <AddListingPage></AddListingPage>
+          </PrivetRouter>
+        ),
       },
       {
         path: "allListData",
         loader: () => fetch("http://localhost:3000/petListdata"),
         Component: AllListData,
+      },
+      {
+        path: "mylist",
+        element: (
+          <PrivetRouter>
+            <MyListing></MyListing>
+          </PrivetRouter>
+        ),
       },
     ],
   },
