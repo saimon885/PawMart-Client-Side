@@ -1,13 +1,11 @@
 import React from "react";
 import { BiCategory } from "react-icons/bi";
 import { FaBangladeshiTakaSign, FaLocationDot } from "react-icons/fa6";
-import { FcCurrencyExchange } from "react-icons/fc";
 import { Link } from "react-router";
 
 const SingleRecentCategory = ({ petData }) => {
   // console.log(petData);
-  const { category, date,_id, name, description, email, image, location, price } =
-    petData;
+  const { category, _id, name, image, location, price } = petData;
   return (
     <div>
       <div

@@ -11,7 +11,6 @@ import { useNavigate } from "react-router";
 import { AuthContext } from "../AuthProvider/AuthContext";
 import { toast } from "react-toastify";
 
-
 const SingleListingDetails = ({ data }) => {
   const { user } = use(AuthContext);
   const navigate = useNavigate();
@@ -34,15 +33,16 @@ const SingleListingDetails = ({ data }) => {
   };
   const handleOrder = (e) => {
     e.preventDefault();
-    const name = e.target.name.value;
+    const buyerName = e.target.name.value;
+    const productName = e.target.productname.value;
     const email = e.target.email.value;
-    const _id = e.target.listingid.value;
+    const productId = e.target.listingid.value;
     const quantity = e.target.quantity.value;
     const price = e.target.price.value;
-    const location = e.target.location.value;
+    const address = e.target.location.value;
     const date = e.target.date.value;
-    const number = e.target.number.value;
-    const description = e.target.description.value;
+    const phone = e.target.number.value;
+    const additionalNotes = e.target.description.value;
     // console.log({
     //   name,
     //   email,
@@ -55,15 +55,16 @@ const SingleListingDetails = ({ data }) => {
     //   description,
     // });
     const NewOrder = {
-      name,
+      buyerName,
+      productName,
       email,
-      _id,
+      productId,
       quantity,
       price,
-      location,
+      address,
       date,
-      number,
-      description,
+      phone,
+      additionalNotes,
     };
     fetch("http://localhost:3000/orders", {
       method: "POST",
@@ -179,6 +180,17 @@ const SingleListingDetails = ({ data }) => {
                   </div>
                 </div>
                 {/* Id */}
+
+                <div>
+                  <label className="label">Listing Name</label>
+                  <input
+                    type="text"
+                    name="productname"
+                    defaultValue={name}
+                    readOnly
+                    className="input focus:border-0 w-full focus:outline-gray-200"
+                  />
+                </div>
                 <label className="label">Listing Id</label>
                 <input
                   type="text"
@@ -187,6 +199,7 @@ const SingleListingDetails = ({ data }) => {
                   readOnly
                   className="input focus:border-0 w-full focus:outline-gray-200"
                 />
+
                 <div className="flex gap-4">
                   <div>
                     {/* Quantity */}
@@ -232,7 +245,6 @@ const SingleListingDetails = ({ data }) => {
                       name="date"
                       required
                       className="input w-full focus:border-0 focus:outline-gray-200"
-                      placeholder="Date"
                     />
                   </div>
                 </div>
