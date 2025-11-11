@@ -4,9 +4,9 @@ import Banner from "../Components/Banner/Banner";
 import Category from "../Components/Home/Category";
 import { Outlet } from "react-router";
 import Footer from "../Components/Footer";
-import LowerFirstBanner from "../Components/Banner/LowerFirstBanner";
-import LowerSecendBanner from "../Components/Banner/LowerSecendBanner";
-import AddTwoBanner from "../Components/Banner/AddTwoBanner";
+// import LowerFirstBanner from "../Components/Banner/LowerFirstBanner";
+// import LowerSecendBanner from "../Components/Banner/LowerSecendBanner";
+// import AddTwoBanner from "../Components/Banner/AddTwoBanner";
 
 const HomeLayout = () => {
   return (
@@ -17,7 +17,7 @@ const HomeLayout = () => {
       <div>
         <Outlet></Outlet>
       </div>
-      <AddTwoBanner></AddTwoBanner>
+      {/* <AddTwoBanner></AddTwoBanner> */}
       <Footer></Footer>
     </div>
   );

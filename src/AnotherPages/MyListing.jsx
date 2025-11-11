@@ -2,6 +2,8 @@ import React, { use, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthContext";
 import Swal from "sweetalert2";
 import { format } from "date-fns";
+import { toast } from "react-toastify";
+import { MdBrowserUpdated, MdDeleteForever } from "react-icons/md";
 // import { toast } from "react-toastify";
 
 const MyListing = () => {
@@ -84,8 +86,10 @@ const MyListing = () => {
       body: JSON.stringify(NewUpdateList),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log("after update", data);
+      .then(() => {
+        ModlaRef.current.close();
+        toast.success("List Update Successful.");
+        // setMyList(data);
       });
   };
   return (
@@ -96,6 +100,7 @@ const MyListing = () => {
           <thead>
             <tr>
               <th>S/N</th>
+              <th>image</th>
               <th>Name</th>
               <th>Category</th>
               <th>Price</th>
@@ -108,7 +113,17 @@ const MyListing = () => {
             {mylist &&
               mylist.map((data, index) => (
                 <tr key={data._id}>
-                  <th>{index + 1}</th>
+                  <td>{index + 1}</td>
+                  <td>
+                    {" "}
+                    <div>
+                      <img
+                        className="w-[50px] rounded-3xl"
+                        src={data.image}
+                        alt=""
+                      />
+                    </div>
+                  </td>
                   <td>{data.name}</td>
                   <td>{data.category}</td>
                   <td>{data.price}</td>
@@ -116,13 +131,13 @@ const MyListing = () => {
                   <td>{data.date}</td>
                   <td className="flex flex-row gap-2">
                     <button onClick={handleUpdata} className="btn btn-primary">
-                      Update{" "}
+                      Update{" "} <MdBrowserUpdated size={20} />
                     </button>
                     <button
                       onClick={() => handleDelete(data._id)}
-                      className="btn btn-primary"
+                      className="btn btn-secondary"
                     >
-                      Delete{" "}
+                      Delete{" "} <MdDeleteForever size={20} />
                     </button>
                   </td>
                 </tr>

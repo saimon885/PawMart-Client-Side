@@ -28,7 +28,7 @@ const AllListData = () => {
                   className="w-full"
                   type="search"
                   name="serchinput"
-                  placeholder="Search Here"
+                  placeholder="Search Product.."
                 />
               </label>
             </div>

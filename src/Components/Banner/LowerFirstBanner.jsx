@@ -1,17 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import banner from "../../assets/petCareBanner.jpg";
 import { MdOutlinePets } from "react-icons/md";
+import AOS from "aos";
 const LowerFirstBanner = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
   return (
-    <div>
+    <div data-aos="fade-up" className="shadow">
       <div className="">
-        <p className="text-3xl text-center font-bold mt-15 mb-3 ">Why Adopt from PawMart?</p>
+        <p className="text-3xl text-center font-bold mt-15 mb-3 ">
+          Why Adopt from PawMart?
+        </p>
       </div>
       <div>
         <div className="hero">
-          <div className="hero-content flex-col lg:flex-row">
-            <img src={banner} className="w-full md:max-w-sm rounded-lg shadow-2xl" />
-            <div className="md:ml-8">
+          <div data-aos="fade-right" className="hero-content flex-col lg:flex-row">
+            <img
+              src={banner}
+              className="w-full md:max-w-sm rounded-lg shadow-2xl"
+            />
+            <div data-aos="fade-left" className="md:ml-8">
               <p className="py-2 flex gap-4 ">
                 <span className="text-[17px] font-semibold">
                   Adopt, Don't Shop: Rescue a Hero Today Every year, millions of
@@ -27,8 +39,9 @@ const LowerFirstBanner = () => {
                   <MdOutlinePets size={25} color="#d72050" />
                 </span>
                 <span>
-                  <span className="font-bold">You Save a Life:</span> You give a deserving animal a loving second
-                  chance and free up space for another pet in need.
+                  <span className="font-bold">You Save a Life:</span> You give a
+                  deserving animal a loving second chance and free up space for
+                  another pet in need.
                 </span>
               </p>
               <p className="py-2 flex gap-4 ">
@@ -36,9 +49,9 @@ const LowerFirstBanner = () => {
                   <MdOutlinePets size={25} color="#d72050" />
                 </span>
                 <span>
-                  <span className="font-bold">You Fight Cruelty:</span> You stop supporting the cruel commercial
-                  breeding industry, like puppy mills, that prioritize profit
-                  over animal welfare.
+                  <span className="font-bold">You Fight Cruelty:</span> You stop
+                  supporting the cruel commercial breeding industry, like puppy
+                  mills, that prioritize profit over animal welfare.
                 </span>
               </p>
               <p className="py-2 flex gap-4 ">
@@ -46,7 +59,10 @@ const LowerFirstBanner = () => {
                   <MdOutlinePets size={25} color="#d72050" />
                 </span>
                 <span>
-                 <span className="font-bold">You Get a Great Pet:</span> Adopted pets often come spayed/neutered, microchipped, and vaccinated—and they reward your kindness with a boundless, unique love.
+                  <span className="font-bold">You Get a Great Pet:</span>{" "}
+                  Adopted pets often come spayed/neutered, microchipped, and
+                  vaccinated—and they reward your kindness with a boundless,
+                  unique love.
                 </span>
               </p>
             </div>

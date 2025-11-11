@@ -53,11 +53,11 @@ const AddListingPage = () => {
   };
   return (
     <div>
-      <h1 className="text-5xl font-bold heading-Font text-center my-5">
+      <h1 className="text-5xl font-bold heading-Font text-center my-3">
         Add New List
       </h1>
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="card w-xs shadow-xl p-4">
+      <div className="flex justify-center items-center my-5">
+        <div className="card w-4xs shadow-xl p-4">
           <form onSubmit={handleAddList}>
             <fieldset className="fieldset bg-white">
               {/* Name */}
@@ -87,24 +87,31 @@ const AddListingPage = () => {
                   <option value="Pet Care Products">Pet Care Products</option>
                 </select>
               </div>
-              {/* price */}
-              <label className="label">Price</label>
-              <input
-                type="text"
-                name="price"
-                required
-                className="input focus:border-0 w-full focus:outline-gray-200"
-                placeholder="Enter Price"
-              />
-              {/* Location */}
-              <label className="label">Location</label>
-              <input
-                type="text"
-                name="location"
-                required
-                className="input w-full focus:border-0 focus:outline-gray-200"
-                placeholder="Enter Location"
-              />
+              <div className="flex gap-4">
+                <div>
+                  {" "}
+                  {/* price */}
+                  <label className="label">Price</label>
+                  <input
+                    type="text"
+                    name="price"
+                    required
+                    className="input focus:border-0 w-full focus:outline-gray-200"
+                    placeholder="Enter Price"
+                  />
+                </div>
+                <div>
+                  {/* Location */}
+                  <label className="label">Location</label>
+                  <input
+                    type="text"
+                    name="location"
+                    required
+                    className="input w-full focus:border-0 focus:outline-gray-200"
+                    placeholder="Enter Location"
+                  />
+                </div>
+              </div>
               {/* Description Textarea */}
               <div>
                 <label className="label font-medium mb-1.5">Description</label>

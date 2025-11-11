@@ -1,6 +1,8 @@
-import React, { use, useRef } from "react";
+import React, { use, useEffect, useRef } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import {
+  FaArrowLeftLong,
+  FaArrowRightLong,
   FaBangladeshiTakaSign,
   FaLocationDot,
   FaRegStar,
@@ -10,7 +12,8 @@ import { MdEmail, MdOutlineDateRange } from "react-icons/md";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../AuthProvider/AuthContext";
 import { toast } from "react-toastify";
-
+import Aos from "aos";
+import "aos/dist/aos.css";
 const SingleListingDetails = ({ data }) => {
   const { user } = use(AuthContext);
   const navigate = useNavigate();
@@ -43,17 +46,7 @@ const SingleListingDetails = ({ data }) => {
     const date = e.target.date.value;
     const phone = e.target.number.value;
     const additionalNotes = e.target.description.value;
-    // console.log({
-    //   name,
-    //   email,
-    //   _id,
-    //   quantity,
-    //   price,
-    //   location,
-    //   date,
-    //   number,
-    //   description,
-    // });
+
     const NewOrder = {
       buyerName,
       productName,
@@ -82,20 +75,32 @@ const SingleListingDetails = ({ data }) => {
         }
       });
   };
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
   return (
     <div>
       <div
         data-aos="fade-up"
         className=" bg-white flex flex-col lg:flex-row py-8 shadow-sm rounded-2xl space-y-4 md:space-y-0 px-5 items-center gap-10 md:gap-20  border border-dotted"
       >
-        <div className="w-full bg-white  lg:w-[1000px] border-b md:border-0 pb-6 md:pb-0 border-dashed h-[300] lg:h-[400px]  p-4">
+        <div
+          data-aos="fade-left"
+          className="w-full bg-white  lg:w-[1000px] border-b md:border-0 pb-6 md:pb-0 border-dashed h-[300] lg:h-[400px]  p-4"
+        >
           <img
-            className=" mx-auto w-full h-full  rounded-2xl "
+            className=" mx-auto w-full h-full shadow p-2 rounded-2xl "
             src={image}
             alt=""
           />
         </div>
-        <div className="space-y-3 w-full bg-white rounded-2xl shadow-sm p-4">
+        <div
+          data-aos="fade-right"
+          className="space-y-3 w-full bg-white rounded-2xl shadow-sm p-4"
+        >
           <h1 className="text-2xl font-bold">{name}</h1>
 
           <p className="border-b border-[#95a5a6] pb-5">
@@ -136,12 +141,16 @@ const SingleListingDetails = ({ data }) => {
           </h2>
 
           <div className="flex gap-3">
-            <button onClick={() => navigate(-1)} className="btn btn-secondary">
-              ⬅ Back
+            <button onClick={() => navigate(-1)} className="btn btn-secondary flex gap-1">
+             <FaArrowLeftLong size={21} /> Back
             </button>
 
             <button onClick={handleModel} className="btn btn-primary">
-              {category == "Pets (Adoption)" ? "Adopt" : "Order Now"}
+              {category == "Pets (Adoption)" ? (
+                <span className="flex gap-1">Adopt <FaArrowRightLong size={21} /></span>
+              ) : (
+                <span className="flex gap-1">Order Now <FaArrowRightLong size={21} /></span>
+              )}
             </button>
           </div>
         </div>
@@ -152,7 +161,7 @@ const SingleListingDetails = ({ data }) => {
         <dialog ref={ModlaRef} className="modal modal-bottom sm:modal-middle">
           <div className="modal-box">
             <form onSubmit={handleOrder}>
-              <fieldset className="fieldset bg-white">
+              <fieldset className="fieldset w-full bg-white">
                 <div className="flex gap-4">
                   <div>
                     {/* Name */}

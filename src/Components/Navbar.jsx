@@ -1,5 +1,5 @@
 import React, { use, useState } from "react";
-import Logo from "../assets/PetLogo.png";
+import Logo from "../assets/PetMainLogo.png";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../AuthProvider/AuthContext";
 import { toast } from "react-toastify";
@@ -38,14 +38,16 @@ const Navbar = () => {
           <li>
             <NavLink to={"/addlistdata"}>Add Listing</NavLink>
           </li>
-          <li><NavLink to={"/mylist"}>My Listings</NavLink></li>
+          <li>
+            <NavLink to={"/mylist"}>My Listings</NavLink>
+          </li>
           <li>{/* <NavLink>My Orders</NavLink> */}</li>
         </div>
       )}
     </>
   );
   return (
-    <div className="navbar border-b mb-8">
+    <div className="navbar border-b border-base-300 shadow-base-100 mb-8">
       <div className="navbar-start">
         <div className="dropdown z-10">
           <div
@@ -55,10 +57,8 @@ const Navbar = () => {
           >
             <div>
               <label className=" swap swap-rotate">
-                {/* this hidden checkbox controls the state */}
                 <input type="checkbox" />
 
-                {/* hamburger icon */}
                 <svg
                   className="swap-off fill-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -81,35 +81,20 @@ const Navbar = () => {
                 </svg>
               </label>
             </div>
-            {/* <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {" "}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
-            </svg> */}
           </div>
           <ul
             tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm text-[17px] dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {Links}
           </ul>{" "}
         </div>
-        <Link to={"/"} className="w-[170px]">
+        <Link to={"/"} className="w-[190px]">
           <img className="w-full" src={Logo} alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden md:flex lg:flex">
-        <ul className="menu menu-horizontal">{Links}</ul>
+        <ul className="menu menu-horizontal text-[17px]">{Links}</ul>
       </div>
       <div className="navbar-end">
         {user ? (

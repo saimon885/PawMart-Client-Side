@@ -1,20 +1,27 @@
-import React from "react";
+import Aos from "aos";
+import React, { useEffect } from "react";
 import { BiCategory } from "react-icons/bi";
 import { FaBangladeshiTakaSign, FaLocationDot } from "react-icons/fa6";
 import { Link } from "react-router";
 
 const SingleRecentCategory = ({ petData }) => {
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
   // console.log(petData);
   const { category, _id, name, image, location, price } = petData;
   return (
     <div>
       <div
         data-aos="fade-up"
-        className=" shadow-sm rounded-2xl border p-3  space-y-2  h-full"
+        className=" hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 shadow-sm rounded-2xl border border-dotted p-3  space-y-2  h-full"
       >
         <div className=" md:w-[380px] mx-auto h-[270px] bg-white p-1 rounded-2xl">
           <img
-            className="w-full h-full mx-auto rounded-2xl "
+            className="w-full h-full  shadow p-2 mx-auto rounded-2xl "
             src={image}
             alt=""
           />
