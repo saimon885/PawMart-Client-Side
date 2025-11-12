@@ -12,6 +12,8 @@ import AddListingPage from "../AnotherPages/AddListingPage";
 import AllListData from "../AnotherPages/AllListData";
 import MyListing from "../AnotherPages/MyListing";
 import PrivetRouter from "../Privetrouter/PrivetRouter";
+import MyOrders from "../AnotherPages/MyOrders";
+import UserPropile from "../Components/UserPropile";
 
 export const router = createBrowserRouter([
   {
@@ -52,6 +54,22 @@ export const router = createBrowserRouter([
         element: (
           <PrivetRouter>
             <MyListing></MyListing>
+          </PrivetRouter>
+        ),
+      },
+      {
+        path: "myorders",
+        element: (
+          <PrivetRouter>
+            <MyOrders></MyOrders>
+          </PrivetRouter>
+        ),
+      },
+      {
+        path: "userpropile",
+        element: (
+          <PrivetRouter>
+            <UserPropile></UserPropile>
           </PrivetRouter>
         ),
       },

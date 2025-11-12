@@ -1,0 +1,96 @@
+import React, { use, useEffect, useState } from "react";
+import { MdBrowserUpdated, MdDeleteForever } from "react-icons/md";
+import Swal from "sweetalert2";
+import { AuthContext } from "../AuthProvider/AuthContext";
+const MyOrders = () => {
+  const { user } = use(AuthContext);
+  const [order, setOrder] = useState([]);
+  useEffect(() => {
+    if (user?.email) {
+      fetch(`http://localhost:3000/myorders?email=${user.email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("after Order", data);
+          setOrder(data);
+        })
+        .catch((error) => console.error("Error fetching orders:", error));
+    }
+  }, [user]);
+
+  const handleDelete = (id) => {
+    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/myorders/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("after delete", data);
+            const remaining = order.filter((list) => list._id !== id);
+            setOrder(remaining);
+          });
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your Order has been deleted.",
+          icon: "success",
+        });
+      }
+    });
+  };
+
+  return (
+    <div className="p-4">
+      <div className="overflow-x-auto rounded-box border border-base-content/4 bg-base-100">
+        <table className="table">
+          {/* head */}
+          <thead>
+            <tr style={{ backgroundColor: "#f3f4f6" }}>
+              <th>S/N</th>
+              <th>Byer Name</th>
+              <th>Product Name</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Location</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {order &&
+              order.map((data, index) => (
+                <tr key={data._id}>
+                  <td>{index + 1}</td>
+                  <td>{data.buyerName}</td>
+                  <td>{data.productName}</td>
+                  <td>{data.quantity}</td>
+                  <td>{data.price}</td>
+                  <td>{data.address}</td>
+                  <td>{data.date}</td>
+                  <td className="flex flex-row gap-2">
+                    <button
+                      onClick={() => handleDelete(data._id)}
+                      className="btn btn-secondary btn-sm"
+                    >
+                      Delete <MdDeleteForever size={20} />
+                    </button>
+                    {/* এখানে আপডেট বাটন থাকতে পারে */}
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default MyOrders;

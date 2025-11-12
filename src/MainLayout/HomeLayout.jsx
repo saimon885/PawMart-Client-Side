@@ -10,14 +10,17 @@ import Footer from "../Components/Footer";
 
 const HomeLayout = () => {
   return (
-    <div className="mx-5 md:mx-10">
-      <Navbar></Navbar>
-      <Banner></Banner>
-      <Category></Category>
-      <div>
-        <Outlet></Outlet>
+    <div>
+      <div className="mx-5">
+        <Navbar></Navbar>
       </div>
-      {/* <AddTwoBanner></AddTwoBanner> */}
+      <Banner></Banner>
+      <div className="mx-5 md:mx-10">
+        <Category></Category>
+        <div>
+          <Outlet></Outlet>
+        </div>
+      </div>
       <Footer></Footer>
     </div>
   );

@@ -98,7 +98,7 @@ const MyListing = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr style={{ backgroundColor: "#f3f4f6" }}>
               <th>S/N</th>
               <th>image</th>
               <th>Name</th>
@@ -131,13 +131,13 @@ const MyListing = () => {
                   <td>{data.date}</td>
                   <td className="flex flex-row gap-2">
                     <button onClick={handleUpdata} className="btn btn-primary">
-                      Update{" "} <MdBrowserUpdated size={20} />
+                      Update <MdBrowserUpdated size={20} />
                     </button>
                     <button
                       onClick={() => handleDelete(data._id)}
                       className="btn btn-secondary"
                     >
-                      Delete{" "} <MdDeleteForever size={20} />
+                      Delete <MdDeleteForever size={20} />
                     </button>
                   </td>
                 </tr>

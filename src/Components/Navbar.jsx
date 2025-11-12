@@ -41,7 +41,9 @@ const Navbar = () => {
           <li>
             <NavLink to={"/mylist"}>My Listings</NavLink>
           </li>
-          <li>{/* <NavLink>My Orders</NavLink> */}</li>
+          <li>
+            <NavLink to={"/myorders"}>My Orders</NavLink>
+          </li>
         </div>
       )}
     </>
@@ -89,7 +91,7 @@ const Navbar = () => {
             {Links}
           </ul>{" "}
         </div>
-        <Link to={"/"} className="w-[190px]">
+        <Link to={"/"} className="-ml-5 w-[190px]">
           <img className="w-full" src={Logo} alt="" />
         </Link>
       </div>
@@ -99,7 +101,10 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <div className="flex items-center gap-2">
-            <div className="rounded-full relative inline-block w-[70px] p-2 mr-2">
+            <Link
+              to={"/userpropile"}
+              className="rounded-full relative inline-block w-[70px] p-2 mr-2"
+            >
               <img
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -112,7 +117,7 @@ const Navbar = () => {
                   {user.displayName}
                 </div>
               )}
-            </div>
+            </Link>
             <button onClick={LogOutUser} className="btn btn-primary">
               LogOut
             </button>

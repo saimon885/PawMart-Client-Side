@@ -141,15 +141,24 @@ const SingleListingDetails = ({ data }) => {
           </h2>
 
           <div className="flex gap-3">
-            <button onClick={() => navigate(-1)} className="btn btn-secondary flex gap-1">
-             <FaArrowLeftLong size={21} /> Back
+            <button
+              onClick={() => navigate(-1)}
+              className="btn btn-secondary flex gap-1"
+            >
+              <FaArrowLeftLong size={21} /> Back
             </button>
 
-            <button onClick={handleModel} className="btn btn-primary">
-              {category == "Pets (Adoption)" ? (
-                <span className="flex gap-1">Adopt <FaArrowRightLong size={21} /></span>
+            <button className="btn btn-primary">
+              {user.email === email ? (
+                <span>This is Your Product!</span>
+              ) : category === "Pets (Adoption)" ? (
+                <span onClick={handleModel} className="flex gap-1">
+                  Adopt <FaArrowRightLong size={21} />
+                </span>
               ) : (
-                <span className="flex gap-1">Order Now <FaArrowRightLong size={21} /></span>
+                <span onClick={handleModel} className="flex gap-1">
+                  Order Now <FaArrowRightLong size={21} />
+                </span>
               )}
             </button>
           </div>

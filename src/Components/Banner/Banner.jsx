@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AOS from "aos";
 // import "aos/dist/aos.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -6,14 +6,15 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
+import Aos from "aos";
 // import Aos from "aos";
 const Banner = () => {
-  //      useEffect(() => {
-  //     Aos.init({
-  //       duration: 1000,
-  //       once: true,
-  //     });
-  //   }, []);
+       useEffect(() => {
+      Aos.init({
+        duration: 1000,
+        once: true,
+      });
+    }, []);
   return (
     <div>
       <div className="mt-5">
@@ -38,15 +39,15 @@ const Banner = () => {
         >
           <SwiperSlide>
             <div
-              className="hero min-h-screen "
+              className="hero min-h-screen"
               style={{
                 backgroundImage:
-                  "url(https://i.ibb.co.com/7N1mZsxd/Banner1.jpg)",
+                  "url(https://i.ibb.co.com/XZqgCFby/man-resting-grass-sitting-crossed-legs-with-his-dog.jpg)",
               }}
             >
               <div className="hero-overlay"></div>
               <div className="hero-content text-neutral-content text-center">
-                <div className="max-w-md">
+                <div data-aos="fade-right" className="max-w-md">
                   <h1 className="mb-5 text-5xl font-bold heading-Font">
                     Find Your Furry Friend Today!
                   </h1>
@@ -56,15 +57,18 @@ const Banner = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div
-              className="hero min-h-screen"
+              className="hero min-h-screen md:h-[200px]"
               style={{
                 backgroundImage:
-                  "url(https://i.ibb.co.com/BVQcbG6s/3786461.jpg)",
+                  "url(https://i.ibb.co.com/N6RM7SWF/side-view-man-with-his-dog-grass.jpg)",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "full",
               }}
             >
-              <div className="hero-overlay"></div>
+              <div className="hero-overlay "></div>
               <div className="hero-content text-neutral-content text-center">
-                <div className="max-w-md">
+                <div data-aos="fade-right" className="max-w-md">
                   <h1 className="mb-5 text-5xl font-bold heading-Font">
                     Adopt, Don’t Shop — Give a Pet a Home.
                   </h1>
@@ -72,17 +76,18 @@ const Banner = () => {
               </div>
             </div>
           </SwiperSlide>
+
           <SwiperSlide>
             <div
               className="hero min-h-screen"
               style={{
                 backgroundImage:
-                  "url(https://i.ibb.co.com/5htMYQ1P/3800307.jpg)",
+                  "url(https://i.ibb.co.com/S7ncbKGY/beautiful-young-woman-playing-with-her-little-dog-park-outdoors-lifestyle-portrait.jpg)",
               }}
             >
               <div className="hero-overlay"></div>
               <div className="hero-content text-neutral-content text-center">
-                <div className="max-w-md">
+                <div data-aos="fade-right" className="max-w-md">
                   <h1 className="mb-5 text-5xl font-bold heading-Font">
                     Because Every Pet Deserves Love and Care.
                   </h1>

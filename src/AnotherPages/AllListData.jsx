@@ -17,9 +17,13 @@ const AllListData = () => {
         setSearchData(data);
       });
   };
+  // const handleCategory = () => {
+  //   console.log("Hello WOrsl");
+  // };
   return (
     <div>
-      <div className="flex justify-center mb-10">
+      <div className="flex items-center justify-between mb-10">
+        <div></div>
         <form onSubmit={handleSerch} className="text-center">
           <div className="join">
             <div>
@@ -39,6 +43,26 @@ const AllListData = () => {
             />
           </div>
         </form>
+        <div>
+          {/* <form onSubmit={handleCategory}>
+            <div>
+              <select
+                defaultValue={""}
+                name="category"
+                required
+                className="select w-full  focus:border-0 focus:outline-gray-200"
+              >
+                <option value="" disabled>
+                  Select category
+                </option>
+                <option value="Pets (Adoption)">Pets (Adoption)</option>
+                <option value="Pet Food">Pet Food</option>
+                <option value="Accessories">Accessories</option>
+                <option value="Pet Care Products">Pet Care Products</option>
+              </select>
+            </div>
+          </form> */}
+        </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3">
         {searchdata.map((petData) => (
