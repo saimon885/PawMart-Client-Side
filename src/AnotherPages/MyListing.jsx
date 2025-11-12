@@ -89,7 +89,7 @@ const MyListing = () => {
       .then(() => {
         ModlaRef.current.close();
         toast.success("List Update Successful.");
-        // setMyList(data);
+        // setMyList(...mylist, data);
       });
   };
   return (
@@ -99,7 +99,7 @@ const MyListing = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr style={{ backgroundColor: "#f3f4f6" }}>
+            <tr className="bg-[#f3f4f6] text-black">
               <th>S/N</th>
               <th>Product/Listing Name</th>
               <th>Category</th>

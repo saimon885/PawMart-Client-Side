@@ -44,7 +44,7 @@ const UserPropile = () => {
           <h2>{user?.email}</h2>
         </div>
         <div data-aos="fade-left" className="card w-full max-w-sm ">
-          <div className="card-body shadow-2xl rounded-2xl">
+          <div className="card-body  shadow-2xl rounded-2xl">
             <div className="border-b pb-2 border-dotted">
               <h1 className="text-2xl">Update Your Profile</h1>
             </div>

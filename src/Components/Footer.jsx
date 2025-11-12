@@ -12,8 +12,8 @@ import { FiMail } from "react-icons/fi";
 const Footer = () => {
   return (
     <div>
-      <div className="bg-[#F6F6F6] rounded-t-3xl">
-        <footer className="footer flex-row md:flex-col md:justify-around  mt-25 sm:footer-horizontal items-center text-base-content  rounded-tl-6xl p-10">
+      <div className="bg-[#F6F6F6] mt-10 rounded-t-3xl">
+        <footer className="footer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-center text-base-content  rounded-tl-6xl p-10">
           <nav className="space-y-2">
             <div className="w-[200px] -ml-5">
               <img className="w-full" src={Logo} alt="" />
@@ -22,7 +22,7 @@ const Footer = () => {
               PetBond is a complete digital platform that strengthens the bond
               between pets and their owners
             </p>
-            <div className="flex gap-2">
+            <div className="flex text-black gap-2">
               <div className="bg-white cursor-pointer rounded-full p-2">
                 <FaXTwitter size={18} />
               </div>
@@ -38,7 +38,7 @@ const Footer = () => {
             </div>
           </nav>
           <nav className="space-y-2">
-            <h6 className="text-[18px] font-medium">Contact Us</h6>
+            <h6 className="text-[18px] text-black font-medium">Contact Us</h6>
             <a className="link link-hover flex gap-3 text-[#4e4e4ee0]">
               <span>
                 <FaPhoneAlt color="#d72050" size={18} />
@@ -59,14 +59,14 @@ const Footer = () => {
             </a>
           </nav>
           <nav className="space-y-2">
-            <h6 className="text-[18px] font-medium">Legal</h6>
+            <h6 className="text-[18px] text-black font-medium">Legal</h6>
             <a className="link link-hover text-[#4e4e4ee0]">Home</a>
             <a className="link link-hover text-[#4e4e4ee0]">Terms of use</a>
             <a className="link link-hover text-[#4e4e4ee0]">Privacy policy</a>
           </nav>
           <nav>
-            <h6 className="text-[18px] font-medium">Newsletter</h6>
-            <fieldset className="w-80">
+            <h6 className="text-[18px] text-black font-medium">Newsletter</h6>
+            <fieldset className="">
               <div className="join">
                 <input
                   type="text"
@@ -79,7 +79,7 @@ const Footer = () => {
           </nav>
         </footer>
         <div className=" border-t border-base-300 py-3 px-2">
-          <h1 className="text-center heading-Font font-bold">
+          <h1 className="text-center text-black heading-Font font-bold">
             Copyright @2025. All rights Reserve. Carefully Crafted By{" "}
             <span className="text-secondary underline">PetBond</span>
           </h1>

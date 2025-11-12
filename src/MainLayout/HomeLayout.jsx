@@ -12,7 +12,7 @@ const HomeLayout = () => {
   return (
     <div>
       <title>PetBond-Home</title>
-      <div className="mx-5">
+      <div className="mx-2 md:mx-5">
         <Navbar></Navbar>
       </div>
       <Banner></Banner>

@@ -40,7 +40,7 @@ const MyOrders = () => {
           });
         Swal.fire({
           title: "Deleted!",
-          text: "Your Order has been deleted.",
+          text: "Your Order has been Cancel.",
           icon: "success",
         });
       }
@@ -54,7 +54,7 @@ const MyOrders = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr style={{ backgroundColor: "#f3f4f6" }}>
+            <tr className="bg-[#f3f4f6] text-black">
               <th>S/N</th>
               <th>Product/Listing Name</th>
               <th>Byer Name</th>
@@ -83,7 +83,7 @@ const MyOrders = () => {
                       onClick={() => handleDelete(data._id)}
                       className="btn btn-secondary btn-sm"
                     >
-                      Delete <MdDeleteForever size={20} />
+                      Cancel <MdDeleteForever size={20} />
                     </button>
                     {/* এখানে আপডেট বাটন থাকতে পারে */}
                   </td>

@@ -1,11 +1,11 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import Logo from "../assets/PetMainLogo.png";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../AuthProvider/AuthContext";
 import { toast } from "react-toastify";
 const Navbar = () => {
   const [isHovering, setIsHovering] = useState(false);
-
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const handleMouseEnter = () => {
     setIsHovering(true);
   };
@@ -48,14 +48,22 @@ const Navbar = () => {
       )}
     </>
   );
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
   return (
-    <div className="navbar border-b border-base-300 shadow-base-100 mb-8">
+    <div className="navbar  border-b border-base-300  shadow mb-8">
       <div className="navbar-start">
         <div className="dropdown z-10">
           <div
             tabIndex={0}
             role="btn"
-            className="btn btn-ghost md:hidden lg:hidden"
+            className="-ml-2 mr-3 btn btn-ghost lg:hidden"
           >
             <div>
               <label className=" swap swap-rotate">
@@ -95,12 +103,21 @@ const Navbar = () => {
           <img className="w-full" src={Logo} alt="" />
         </Link>
       </div>
-      <div className="navbar-center hidden md:flex lg:flex">
+      <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal text-[17px]">{Links}</ul>
       </div>
       <div className="navbar-end">
+        {/* light dark */}
+        <div className="darklightmode mr-2 md:mr-3">
+          <input
+            onChange={(e) => handleTheme(e.target.checked)}
+            type="checkbox"
+            defaultChecked={localStorage.getItem("theme") === "dark"}
+            className="toggle"
+          />
+        </div>
         {user ? (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 md:gap-2">
             <Link
               to={"/userpropile"}
               className="rounded-full relative inline-block w-[70px] p-2 mr-2"
@@ -127,7 +144,10 @@ const Navbar = () => {
             <Link to={"/login"} className="btn btn-primary">
               LogIn
             </Link>
-            <Link to={"/register"} className="btn hidden md:flex ml-2 btn-primary">
+            <Link
+              to={"/register"}
+              className="btn hidden md:flex ml-2 btn-primary"
+            >
               Register
             </Link>
           </div>

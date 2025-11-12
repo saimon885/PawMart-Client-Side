@@ -54,11 +54,12 @@ const AddListingPage = () => {
   return (
     <div>
       <title>PetBond-AddList</title>
-      <h1 className="text-5xl font-bold heading-Font text-center my-3">
-        Add New List
-      </h1>
-      <div className="flex justify-center items-center my-5">
-        <div className="card w-4xs shadow-xl p-4">
+
+      <div className="flex justify-center  items-center my-5">
+        <div className="card w-4xs shadow-xl bg-white p-4">
+          <h1 className="text-5xl font-bold text-black heading-Font text-center my-3">
+            Add New List
+          </h1>
           <form onSubmit={handleAddList}>
             <fieldset className="fieldset bg-white">
               {/* Name */}

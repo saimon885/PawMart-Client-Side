@@ -55,7 +55,7 @@ const Register = () => {
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">
           <h1 className="text-3xl text-center font-bold">
-            Register Your Account!
+            Create Your Account!
           </h1>
           <form onSubmit={handleRegister}>
             <fieldset className="fieldset">
@@ -64,7 +64,7 @@ const Register = () => {
                 type="text"
                 name="name"
                 required
-                className="input w-full"
+                className="input rounded-2xl focus:border-0 w-full focus:outline-gray-200"
                 placeholder="Enter your Name"
               />
               <label className="label font-medium">PhotoURL</label>
@@ -72,7 +72,7 @@ const Register = () => {
                 type="text"
                 name="photourl"
                 required
-                className="input w-full"
+                className="input rounded-2xl focus:border-0 w-full focus:outline-gray-200"
                 placeholder="Enter your PhotoURL"
               />
               <label className="label font-medium">Email</label>
@@ -80,7 +80,7 @@ const Register = () => {
                 type="email"
                 name="email"
                 required
-                className="input w-full"
+                className="input rounded-2xl focus:border-0 w-full focus:outline-gray-200"
                 placeholder="Enter your email"
               />
               <label className="label font-medium">Password</label>
@@ -89,7 +89,7 @@ const Register = () => {
                   type={!show ? "text" : "password"}
                   name="password"
                   required
-                  className="input w-full"
+                  className="input rounded-2xl focus:border-0 w-full focus:outline-gray-200"
                   placeholder="Enter your password"
                 />
                 <span onClick={handleShowOf} className="absolute top-3 right-5">
@@ -100,16 +100,16 @@ const Register = () => {
               {error && <p className="text-red-500 font-medium">{error}</p>}
               <div></div>
               <input
-                className="btn  bg-linear-65 from-[#eb4d4b] to-[#e056fd] text-white mt-4"
+                className="btn rounded-2xl bg-linear-65 from-[#eb4d4b] to-[#e056fd] text-white mt-4"
                 type="submit"
                 value="Register"
               />
             </fieldset>
           </form>
-          <p className="text-center -my-2">__or__</p>
+          <p className="text-center -my-2">or</p>
           <button
             onClick={handlegoogle}
-            className="btn bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-black font-medium"
+            className="btn rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-black font-medium"
           >
             <span>
               <FcGoogle size={24} />

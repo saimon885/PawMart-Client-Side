@@ -86,7 +86,7 @@ const SingleListingDetails = ({ data }) => {
       <title>PetBond-details</title>
       <div
         data-aos="fade-up"
-        className=" bg-white flex flex-col lg:flex-row py-8 shadow-sm rounded-2xl space-y-4 md:space-y-0 px-5 items-center gap-10 md:gap-20  border border-dotted"
+        className=" bg-white text-black flex flex-col lg:flex-row py-8 shadow-sm rounded-2xl space-y-4 md:space-y-0 px-5 items-center gap-10 md:gap-20  border border-dotted"
       >
         <div
           data-aos="fade-left"
@@ -169,7 +169,7 @@ const SingleListingDetails = ({ data }) => {
         {/* Open the modal using document.getElementById('ID').showModal() method */}
 
         <dialog ref={ModlaRef} className="modal modal-bottom sm:modal-middle">
-          <div className="modal-box">
+          <div className="modal-box bg-white">
             <form onSubmit={handleOrder}>
               <fieldset className="fieldset w-full bg-white">
                 <div className="flex gap-4">

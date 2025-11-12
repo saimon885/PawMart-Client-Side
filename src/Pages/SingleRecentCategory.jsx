@@ -17,9 +17,9 @@ const SingleRecentCategory = ({ petData }) => {
     <div>
       <div
         data-aos="fade-up"
-        className=" hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 shadow-sm rounded-2xl border border-dotted p-3  space-y-2  h-full"
+        className=" hover:shadow-2xl transition-all bg-white text-black duration-300 hover:-translate-y-2 shadow-sm rounded-2xl border border-dotted p-3  space-y-2  h-full"
       >
-        <div className=" md:w-[380px] mx-auto h-[270px] bg-white p-1 rounded-2xl">
+        <div className=" md:max-w-[380px] mx-auto h-[270px] bg-white p-1 rounded-2xl">
           <img
             className="w-full h-full  shadow p-2 mx-auto rounded-2xl "
             src={image}

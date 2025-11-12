@@ -61,7 +61,7 @@ const Login = () => {
                 name="email"
                 ref={emailRef}
                 required
-                className="input w-full"
+                className="input rounded-2xl focus:border-0 w-full focus:outline-gray-200"
                 placeholder="Enter your email"
               />
               <label className="label font-medium">Password</label>
@@ -70,7 +70,7 @@ const Login = () => {
                   type={!show ? "text" : "password"}
                   name="password"
                   required
-                  className="input w-full"
+                  className="input rounded-2xl focus:border-0 w-full focus:outline-gray-200"
                   placeholder="Enter your password"
                 />
                 <span onClick={handleShowOf} className="absolute top-3 right-5">
@@ -81,7 +81,7 @@ const Login = () => {
               <div onClick={handleForgetPassword}>
                 <a className="link link-hover font-medium">Forgot password?</a>
               </div>
-              <button className="btn  bg-linear-65 from-[#eb4d4b] to-[#e056fd] mt-4">
+              <button className="btn text-white rounded-2xl bg-linear-65 from-[#eb4d4b] to-[#e056fd] mt-4">
                 LogIn
               </button>
             </fieldset>
@@ -89,7 +89,7 @@ const Login = () => {
           <p className="text-center -my-2">or</p>
           <button
             onClick={handlegoogle}
-            className="btn bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-black font-medium"
+            className="btn rounded-2xl text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-black font-medium"
           >
             <span>
               <FcGoogle size={24} />

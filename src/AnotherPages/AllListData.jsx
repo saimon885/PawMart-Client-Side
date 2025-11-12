@@ -28,7 +28,7 @@ const AllListData = () => {
         <form onSubmit={handleSerch} className="text-center">
           <div className="join">
             <div>
-              <label className="input validator w-xs join-item">
+              <label className="input validator max-w-70 join-item">
                 <input
                   className="w-full"
                   type="search"
@@ -65,13 +65,23 @@ const AllListData = () => {
           </form> */}
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3">
-        {searchdata.map((petData) => (
-          <SingleRecentCategory
-            key={petData._id}
-            petData={petData}
-          ></SingleRecentCategory>
-        ))}
+      <div>
+        {searchdata ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3">
+            {searchdata.map((petData) => (
+              <SingleRecentCategory
+                key={petData._id}
+                petData={petData}
+              ></SingleRecentCategory>
+            ))}
+          </div>
+        ) : (
+          <div>
+            <h1 className="text-3xl font-bold text-center my-5">
+              Product is Not Availableee !
+            </h1>
+          </div>
+        )}
       </div>
     </div>
   );
