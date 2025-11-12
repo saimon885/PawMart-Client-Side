@@ -80,7 +80,7 @@ export const router = createBrowserRouter([
     Component: HomeLayout,
     children: [
       {
-        path: "/:name",
+        path: "category/:name",
         loader: () => fetch("http://localhost:3000/petListdata"),
         hydrateFallbackElement: <Loading></Loading>,
         Component: RecentCategoryData,

@@ -94,18 +94,18 @@ const MyListing = () => {
   };
   return (
     <div>
+      <title>PetBond-MyList</title>
       <div className="overflow-x-auto rounded-box border border-base-content/4 bg-base-100">
         <table className="table">
           {/* head */}
           <thead>
             <tr style={{ backgroundColor: "#f3f4f6" }}>
               <th>S/N</th>
-              <th>image</th>
-              <th>Name</th>
+              <th>Product/Listing Name</th>
               <th>Category</th>
               <th>Price</th>
               <th>Location</th>
-              <th>Created Date</th>
+              <th>PickUp Date</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -114,16 +114,6 @@ const MyListing = () => {
               mylist.map((data, index) => (
                 <tr key={data._id}>
                   <td>{index + 1}</td>
-                  <td>
-                    {" "}
-                    <div>
-                      <img
-                        className="w-[50px] rounded-3xl"
-                        src={data.image}
-                        alt=""
-                      />
-                    </div>
-                  </td>
                   <td>{data.name}</td>
                   <td>{data.category}</td>
                   <td>{data.price}</td>

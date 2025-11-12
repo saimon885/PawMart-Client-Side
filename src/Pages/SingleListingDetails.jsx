@@ -83,6 +83,7 @@ const SingleListingDetails = ({ data }) => {
   }, []);
   return (
     <div>
+      <title>PetBond-details</title>
       <div
         data-aos="fade-up"
         className=" bg-white flex flex-col lg:flex-row py-8 shadow-sm rounded-2xl space-y-4 md:space-y-0 px-5 items-center gap-10 md:gap-20  border border-dotted"
@@ -257,7 +258,7 @@ const SingleListingDetails = ({ data }) => {
                   </div>
                   <div>
                     {/* Date */}
-                    <label className="label">Date</label>
+                    <label className="label">Pick Up Date</label>
                     <input
                       type="date"
                       name="date"

@@ -123,11 +123,11 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-          <div>
+          <div className="flex gap-2 items-center">
             <Link to={"/login"} className="btn btn-primary">
               LogIn
             </Link>
-            <Link to={"/register"} className="btn  ml-2 btn-primary">
+            <Link to={"/register"} className="btn hidden md:flex ml-2 btn-primary">
               Register
             </Link>
           </div>

@@ -23,16 +23,16 @@ const Footer = () => {
               between pets and their owners
             </p>
             <div className="flex gap-2">
-              <div className="bg-white rounded-full p-2">
+              <div className="bg-white cursor-pointer rounded-full p-2">
                 <FaXTwitter size={18} />
               </div>
-              <div className="bg-white rounded-full p-2">
+              <div className="bg-white cursor-pointer rounded-full p-2">
                 <FaFacebookF size={18} />
               </div>
-              <div className="bg-white rounded-full p-2">
+              <div className="bg-white cursor-pointer rounded-full p-2">
                 <FaInstagram size={20} />
               </div>
-              <div className="bg-white rounded-full p-2">
+              <div className="bg-white cursor-pointer rounded-full p-2">
                 <FaYoutube size={20} />
               </div>
             </div>

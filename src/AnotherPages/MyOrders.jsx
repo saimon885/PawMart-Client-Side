@@ -49,17 +49,19 @@ const MyOrders = () => {
 
   return (
     <div className="p-4">
+      <title>PetBond-MyOrders</title>
       <div className="overflow-x-auto rounded-box border border-base-content/4 bg-base-100">
         <table className="table">
           {/* head */}
           <thead>
             <tr style={{ backgroundColor: "#f3f4f6" }}>
               <th>S/N</th>
+              <th>Product/Listing Name</th>
               <th>Byer Name</th>
-              <th>Product Name</th>
+              <th>Phone Number</th>
               <th>Quantity</th>
               <th>Price</th>
-              <th>Location</th>
+              <th>Address</th>
               <th>Date</th>
               <th>Actions</th>
             </tr>
@@ -69,8 +71,9 @@ const MyOrders = () => {
               order.map((data, index) => (
                 <tr key={data._id}>
                   <td>{index + 1}</td>
-                  <td>{data.buyerName}</td>
                   <td>{data.productName}</td>
+                  <td>{data.buyerName}</td>
+                  <td>{data.phone}</td>
                   <td>{data.quantity}</td>
                   <td>{data.price}</td>
                   <td>{data.address}</td>

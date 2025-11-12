@@ -22,6 +22,7 @@ const AllListData = () => {
   // };
   return (
     <div>
+      <title>PetBond-Pets & Supplies</title>
       <div className="flex items-center justify-between mb-10">
         <div></div>
         <form onSubmit={handleSerch} className="text-center">

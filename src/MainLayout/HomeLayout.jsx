@@ -11,6 +11,7 @@ import Footer from "../Components/Footer";
 const HomeLayout = () => {
   return (
     <div>
+      <title>PetBond-Home</title>
       <div className="mx-5">
         <Navbar></Navbar>
       </div>

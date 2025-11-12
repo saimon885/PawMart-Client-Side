@@ -1,6 +1,6 @@
 import React, { use } from "react";
 import { AuthContext } from "../AuthProvider/AuthContext";
-import { format } from "date-fns";
+// import { format } from "date-fns";
 import { toast } from "react-toastify";
 
 const AddListingPage = () => {
@@ -13,9 +13,9 @@ const AddListingPage = () => {
     const location = e.target.location.value;
     const description = e.target.description.value;
     const image = e.target.imageurl.value;
-    const email = user?.email;
-    const currntDate = new Date();
-    const date = format(currntDate, "dd-MM-yyyy");
+    const email = e.target.email.value;
+    // const currntDate = new Date();
+    const date = e.target.date.value;
     // console.log({
     //   name,
     //   category,
@@ -53,6 +53,7 @@ const AddListingPage = () => {
   };
   return (
     <div>
+      <title>PetBond-AddList</title>
       <h1 className="text-5xl font-bold heading-Font text-center my-3">
         Add New List
       </h1>
@@ -69,6 +70,7 @@ const AddListingPage = () => {
                 className="input focus:border-0 focus:outline-gray-200 w-full"
                 placeholder="Enter Product/Pet Name"
               />
+
               {/* Category Dropdown */}
               <div>
                 <label className="label font-medium mb-1.5">Category</label>
@@ -95,6 +97,7 @@ const AddListingPage = () => {
                   <input
                     type="text"
                     name="price"
+                    // defaultValue={category == "Pets (Adoption)" ? 0 : ''}
                     required
                     className="input focus:border-0 w-full focus:outline-gray-200"
                     placeholder="Enter Price"
@@ -109,6 +112,31 @@ const AddListingPage = () => {
                     required
                     className="input w-full focus:border-0 focus:outline-gray-200"
                     placeholder="Enter Location"
+                  />
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div>
+                  {/*gmail */}
+                  <label className="label">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    defaultValue={user && user.email}
+                    readOnly
+                    required
+                    className="input focus:border-0 focus:outline-gray-200 w-full"
+                    placeholder="Enter Product/Pet Name"
+                  />
+                </div>
+                <div>
+                  {/* Date */}
+                  <label className="label">Pick Up Date</label>
+                  <input
+                    type="date"
+                    name="date"
+                    required
+                    className="input w-full focus:border-0 focus:outline-gray-200"
                   />
                 </div>
               </div>

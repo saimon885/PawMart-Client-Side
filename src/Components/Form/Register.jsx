@@ -51,6 +51,7 @@ const Register = () => {
   };
   return (
     <div className="hero my-15">
+      <title>PetBond-Register</title>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">
           <h1 className="text-3xl text-center font-bold">

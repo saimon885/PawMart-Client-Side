@@ -1,18 +1,17 @@
 import React, { use, useRef, useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router";
-import { AuthContext } from "../../AuthProvider/AuthContext";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../AuthProvider/AuthContext";
 
 const Login = () => {
   const [show, setShow] = useState(true);
   const emailRef = useRef();
-  const { LoginUser, googleSignIn, ForgetPass } = use(AuthContext);
   const location = useLocation();
   const from = location.state || "/";
   const navigate = useNavigate();
-
+  const { LoginUser, googleSignIn, ForgetPass } = use(AuthContext);
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -27,7 +26,18 @@ const Login = () => {
   const handleShowOf = () => {
     setShow(!show);
   };
-  const ForgotPassword = () => {
+  const handlegoogle = () => {
+    // alert("click")
+    googleSignIn()
+      .then(() => {
+        toast.success("LogIn Successful.");
+        navigate(from);
+      })
+      .catch((error) => {
+        toast.error(error.code);
+      });
+  };
+  const handleForgetPassword = () => {
     const email = emailRef.current.value;
     ForgetPass(email)
       .then(() => {
@@ -35,15 +45,9 @@ const Login = () => {
       })
       .catch(() => {});
   };
-  const handlegoogle = () => {
-    googleSignIn()
-      .then(() => {
-          toast.success("LogIn Successful.")
-      })
-      .catch();
-  };
   return (
     <div className="hero my-15">
+      <title>PetBond-Login</title>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">
           <h1 className="text-3xl text-center font-bold">
@@ -74,7 +78,7 @@ const Login = () => {
                   {show ? <FaEye size={18} /> : <FaEyeSlash size={18} />}
                 </span>
               </div>
-              <div onClick={ForgotPassword}>
+              <div onClick={handleForgetPassword}>
                 <a className="link link-hover font-medium">Forgot password?</a>
               </div>
               <button className="btn  bg-linear-65 from-[#eb4d4b] to-[#e056fd] mt-4">

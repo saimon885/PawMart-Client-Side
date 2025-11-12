@@ -6,6 +6,7 @@ import RecentCategoryData from "../../Pages/RecentCategoryData";
 const Home = () => {
   return (
     <div>
+      <title>PetBond-Home</title>
       <Banner></Banner>
       <Category></Category>
       <RecentCategoryData></RecentCategoryData>
