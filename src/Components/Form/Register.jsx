@@ -22,7 +22,7 @@ const Register = () => {
 
     const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])/;
     if (!passwordRegex.test(password)) {
-      alert("Please Provide your Strong Password!");
+      setError("Please Provide your Strong Password!");
       return;
     }
     if (password.length < 6) {
