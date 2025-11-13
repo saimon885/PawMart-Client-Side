@@ -51,7 +51,7 @@ const AllListData = () => {
         <form onSubmit={handleSerch} className="text-center">
           <div className="join">
             <div>
-              <label className="input validator w-xs join-item">
+              <label className="input validator max-w-70 join-item">
                 <input
                   className="w-full"
                   type="search"
