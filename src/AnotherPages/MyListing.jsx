@@ -12,7 +12,14 @@ const MyListing = () => {
   const ModlaRef = useRef(null);
   useEffect(() => {
     user &&
-      fetch(`http://localhost:3000/mylistdata?email=${user.email}`)
+      fetch(
+        `https://my-assignment-10-flax.vercel.app/mylistdata?email=${user.email}`,
+        {
+          headers: {
+            authorization: `Bearer ${user.accessToken}`,
+          },
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log("after my list", data);
@@ -32,7 +39,7 @@ const MyListing = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/mylistdata/${id}`, {
+        fetch(`https://my-assignment-10-flax.vercel.app/mylistdata/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -76,9 +83,9 @@ const MyListing = () => {
       email,
       date,
     };
-    console.log(NewUpdateList);
+    // console.log(NewUpdateList);
     // update List
-    fetch(`http://localhost:3000/mylistdata/${id}`, {
+    fetch(`https://my-assignment-10-flax.vercel.app/mylistdata/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -95,7 +102,7 @@ const MyListing = () => {
   return (
     <div>
       <title>PetBond-MyList</title>
-      <div className="overflow-x-auto rounded-box border border-base-content/4 bg-base-100">
+      <div className="overflow-x-auto mx-5 rounded-box border border-base-content/4 bg-base-100">
         <table className="table">
           {/* head */}
           <thead>

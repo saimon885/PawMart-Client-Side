@@ -36,7 +36,7 @@ const AddListingPage = () => {
       email,
       date,
     };
-    fetch("http://localhost:3000/petListdata", {
+    fetch("https://my-assignment-10-flax.vercel.app/petListdata", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +55,7 @@ const AddListingPage = () => {
     <div>
       <title>PetBond-AddList</title>
 
-      <div className="flex justify-center  items-center my-5">
+      <div className="flex justify-center mx-5 md:mx-10  items-center my-5">
         <div className="card w-4xs shadow-xl bg-white p-4">
           <h1 className="text-5xl font-bold text-black heading-Font text-center my-3">
             Add New List
@@ -63,7 +63,7 @@ const AddListingPage = () => {
           <form onSubmit={handleAddList}>
             <fieldset className="fieldset bg-white">
               {/* Name */}
-              <label className="label">Product/Pet Name</label>
+              <label className="label text-black">Product/Pet Name</label>
               <input
                 type="text"
                 name="name"
@@ -74,7 +74,9 @@ const AddListingPage = () => {
 
               {/* Category Dropdown */}
               <div>
-                <label className="label font-medium mb-1.5">Category</label>
+                <label className="label text-black font-medium mb-1.5">
+                  Category
+                </label>
                 <select
                   defaultValue={""}
                   name="category"
@@ -94,7 +96,7 @@ const AddListingPage = () => {
                 <div>
                   {" "}
                   {/* price */}
-                  <label className="label">Price</label>
+                  <label className="label text-black">Price</label>
                   <input
                     type="text"
                     name="price"
@@ -106,7 +108,7 @@ const AddListingPage = () => {
                 </div>
                 <div>
                   {/* Location */}
-                  <label className="label">Location</label>
+                  <label className="label text-black">Location</label>
                   <input
                     type="text"
                     name="location"
@@ -119,7 +121,7 @@ const AddListingPage = () => {
               <div className="flex gap-4">
                 <div>
                   {/*gmail */}
-                  <label className="label">Email</label>
+                  <label className="label text-black">Email</label>
                   <input
                     type="email"
                     name="email"
@@ -132,7 +134,7 @@ const AddListingPage = () => {
                 </div>
                 <div>
                   {/* Date */}
-                  <label className="label">Pick Up Date</label>
+                  <label className="label text-black">Pick Up Date</label>
                   <input
                     type="date"
                     name="date"
@@ -143,7 +145,9 @@ const AddListingPage = () => {
               </div>
               {/* Description Textarea */}
               <div>
-                <label className="label font-medium mb-1.5">Description</label>
+                <label className="label text-black font-medium mb-1.5">
+                  Description
+                </label>
                 <textarea
                   name="description"
                   required
@@ -154,7 +158,9 @@ const AddListingPage = () => {
               </div>
               {/* Image URL */}
               <div>
-                <label className="label font-medium mb-1.5">Image URL</label>
+                <label className="label text-black font-medium mb-1.5">
+                  Image URL
+                </label>
                 <input
                   type="url"
                   name="imageurl"

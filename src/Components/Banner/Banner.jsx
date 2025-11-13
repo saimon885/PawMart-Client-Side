@@ -7,14 +7,28 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 import Aos from "aos";
+import { useTypewriter } from "react-simple-typewriter";
 // import Aos from "aos";
 const Banner = () => {
-       useEffect(() => {
-      Aos.init({
-        duration: 1000,
-        once: true,
-      });
-    }, []);
+  const [text] = useTypewriter({
+    words: [
+      "Find Your Furry Friend Today!",
+      "Adopt, Don’t Shop — Give a Pet a Home.",
+      " Because Every Pet Deserves Love and Care.",
+    ],
+    loop: {},
+    typeSpeed: 120,
+    deleteSpeed: 80,
+  });
+
+  // /** Hook Output */
+  // const { isType, isDelete, isDelay, isDone } = helper;
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
   return (
     <div>
       <div className="mt-5">
@@ -49,7 +63,7 @@ const Banner = () => {
               <div className="hero-content text-neutral-content text-center">
                 <div data-aos="fade-right" className="max-w-md">
                   <h1 className="mb-5 text-5xl font-bold heading-Font">
-                    Find Your Furry Friend Today!
+                    {text}
                   </h1>
                 </div>
               </div>
@@ -70,7 +84,7 @@ const Banner = () => {
               <div className="hero-content text-neutral-content text-center">
                 <div data-aos="fade-right" className="max-w-md">
                   <h1 className="mb-5 text-5xl font-bold heading-Font">
-                    Adopt, Don’t Shop — Give a Pet a Home.
+                    {text}
                   </h1>
                 </div>
               </div>
@@ -89,7 +103,7 @@ const Banner = () => {
               <div className="hero-content text-neutral-content text-center">
                 <div data-aos="fade-right" className="max-w-md">
                   <h1 className="mb-5 text-5xl font-bold heading-Font">
-                    Because Every Pet Deserves Love and Care.
+                    {text}
                   </h1>
                 </div>
               </div>

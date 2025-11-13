@@ -16,7 +16,7 @@ const HomeLayout = () => {
         <Navbar></Navbar>
       </div>
       <Banner></Banner>
-      <div className="mx-5 md:mx-10">
+      <div>
         <Category></Category>
         <div>
           <Outlet></Outlet>

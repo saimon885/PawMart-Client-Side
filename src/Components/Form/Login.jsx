@@ -11,7 +11,7 @@ const Login = () => {
   const location = useLocation();
   const from = location.state || "/";
   const navigate = useNavigate();
-  const { LoginUser, googleSignIn, ForgetPass } = use(AuthContext);
+  const { LoginUser, googleSignIn } = use(AuthContext);
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -37,14 +37,7 @@ const Login = () => {
         toast.error(error.code);
       });
   };
-  const handleForgetPassword = () => {
-    const email = emailRef.current.value;
-    ForgetPass(email)
-      .then(() => {
-        toast.success("password reset.");
-      })
-      .catch(() => {});
-  };
+
   return (
     <div className="hero my-15">
       <title>PetBond-Login</title>
@@ -78,9 +71,7 @@ const Login = () => {
                   {show ? <FaEye size={18} /> : <FaEyeSlash size={18} />}
                 </span>
               </div>
-              <div onClick={handleForgetPassword}>
-                <a className="link link-hover font-medium">Forgot password?</a>
-              </div>
+
               <button className="btn text-white rounded-2xl bg-linear-65 from-[#eb4d4b] to-[#e056fd] mt-4">
                 LogIn
               </button>

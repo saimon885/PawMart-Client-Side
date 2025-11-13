@@ -57,7 +57,7 @@ const Navbar = () => {
     setTheme(checked ? "dark" : "light");
   };
   return (
-    <div className="navbar  border-b border-base-300  shadow mb-8">
+    <div className="navbar  border-b border-base-300  mb-8">
       <div className="navbar-start">
         <div className="dropdown z-10">
           <div

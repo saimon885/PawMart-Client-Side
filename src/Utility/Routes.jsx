@@ -29,7 +29,9 @@ export const router = createBrowserRouter([
       {
         path: "details/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/petListdata/details/${params.id}`),
+          fetch(
+            `https://my-assignment-10-flax.vercel.app/petListdata/details/${params.id}`
+          ),
         element: (
           <PrivetRouter>
             <ListingDetails></ListingDetails>
@@ -46,7 +48,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "allListData",
-        loader: () => fetch("http://localhost:3000/petListdata"),
+        loader: () =>
+          fetch("https://my-assignment-10-flax.vercel.app/petListdata"),
         Component: AllListData,
       },
       {
@@ -81,7 +84,8 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "category/:name",
-        loader: () => fetch("http://localhost:3000/petListdata"),
+        loader: () =>
+          fetch("https://my-assignment-10-flax.vercel.app/petListdata"),
         hydrateFallbackElement: <Loading></Loading>,
         Component: RecentCategoryData,
       },

@@ -2,7 +2,14 @@ import React, { useEffect } from "react";
 import banner from "../../assets/petCareBanner.jpg";
 import { MdOutlinePets } from "react-icons/md";
 import AOS from "aos";
+import { useTypewriter } from "react-simple-typewriter";
 const LowerFirstBanner = () => {
+  const [head_text] = useTypewriter({
+    words: [`Adopt from PawMart?`],
+    loop: {},
+    typeSpeed: 120,
+    deleteSpeed: 80,
+  });
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -13,12 +20,15 @@ const LowerFirstBanner = () => {
     <div data-aos="fade-up" className="shadow">
       <div className="">
         <p className="text-3xl text-center font-bold mt-15 mb-3 ">
-          Why Adopt from PawMart?
+          Why {head_text}
         </p>
       </div>
       <div>
         <div className="hero">
-          <div data-aos="fade-right" className="hero-content flex-col lg:flex-row">
+          <div
+            data-aos="fade-right"
+            className="hero-content flex-col lg:flex-row"
+          >
             <img
               src={banner}
               className="w-full md:max-w-sm rounded-lg shadow-2xl"

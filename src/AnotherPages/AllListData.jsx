@@ -9,8 +9,10 @@ const AllListData = () => {
   const handleSerch = (e) => {
     e.preventDefault();
     const search_text = e.target.serchinput.value;
-    console.log(search_text);
-    fetch(`http://localhost:3000/search?search=${search_text}`)
+    // console.log(search_text);
+    fetch(
+      `https://my-assignment-10-flax.vercel.app/search?search=${search_text}`
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log("after search", data);
@@ -21,7 +23,7 @@ const AllListData = () => {
   //   console.log("Hello WOrsl");
   // };
   return (
-    <div>
+    <div className="mx-5 md:mx-10">
       <title>PetBond-Pets & Supplies</title>
       <div className="flex items-center justify-between mb-10">
         <div></div>

@@ -1,7 +1,7 @@
 import Aos from "aos";
 import React, { useEffect } from "react";
 import { BiCategory } from "react-icons/bi";
-import { FaBangladeshiTakaSign, FaLocationDot } from "react-icons/fa6";
+import { FaBangladeshiTakaSign, FaGreaterThan, FaLocationDot } from "react-icons/fa6";
 import { Link } from "react-router";
 
 const SingleRecentCategory = ({ petData }) => {
@@ -21,7 +21,7 @@ const SingleRecentCategory = ({ petData }) => {
       >
         <div className=" md:max-w-[380px] mx-auto h-[270px] bg-white p-1 rounded-2xl">
           <img
-            className="w-full h-full  shadow p-2 mx-auto rounded-2xl "
+            className="w-full h-full  shadow p-2 mx-auto rounded-t-3xl "
             src={image}
             alt=""
           />
@@ -45,8 +45,11 @@ const SingleRecentCategory = ({ petData }) => {
 
         <div className="flex flex-col md:flex-row md:justify-between md:items-center">
           <div></div>
-          <Link to={`/details/${_id}`} className="btn btn-primary">
-            See Deatails...
+          <Link to={`/details/${_id}`} className="btn flex gap-1 items-center btn-primary">
+            See Deatails{" "}
+            <span>
+              <FaGreaterThan />
+            </span>
           </Link>
         </div>
       </div>

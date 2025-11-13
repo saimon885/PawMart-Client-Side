@@ -1,16 +1,13 @@
-# React + Vite
+Website Name : PetBond
+Live URL : https://petbond-project.netlify.app/
+Technologys : react,react router,react-icons,firebase,aos,react-simple-typewriter,react-toastify,sweetalert2,swiper,typewriter-effect
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- This website is a petbond website, meaning friendship between pets and humans. Here, any user can buy or sell any pet product or pet.Let's give some detailed information about the navar of the project. On the left side of the navbar, there is the website logo, in the middle there are some routes and on the right side there is dark and light mode. If someone wants to see his website, someone can see it or like mode. Then there are register and login buttons. If the user wants to visit the complete information of the website or the entire website properly, then he must login or register.
 
-Currently, two official plugins are available:
+- In this project, first a home page is given. Inside that home page, a navbar and three banner sliders are used, and some information about pets is written inside it. Then for the convenience of the user, the user can find his desired product or pet according to the category. Then some information is given about what is our duty towards pets. Then pictures of some people who serve pets are given. Finally, a footer is given which is used in all websites.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- The cards that are arranged according to the category of the home page or in the pet & supplies page have a product image name and some light information about it. Whenever a user clicks on the details button, he will find all the details of the product. From there, if he wants, if he does not like the product, he can back out or if he likes the product, he can buy that product. When he clicks on the order now button to buy the product, a model will open in front of him and he can buy the product using its detailed information from there. Moreover, there is a search bar in the pets and supplies page, if anyone wants, he can search for the product he needs and buy it from here.
 
-## React Compiler
+- Add listing and my listing These two pages normally have some information. In the add list, if a user wants to create a list of the product he wants to sell and sell it, but he must be logged in to the website, otherwise he will not be able to access this page. My listing page When he adds a product, he will be able to see the name, category, location, and other things of the product he has added. There is an update and delete button here, the user can update or delete his product if he wants.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- This page will be visible only when a user is logged in. And when someone orders a product from the product list, that order will be submitted to My Order from where he can see the details of the entire product and if he feels that he does not need the product, then he can cancel the product.

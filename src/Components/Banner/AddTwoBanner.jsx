@@ -4,7 +4,7 @@ import LowerSecendBanner from './LowerSecendBanner';
 
 const AddTwoBanner = () => {
     return (
-        <div>
+        <div className='mx-5 md:mx-10'>
             <LowerFirstBanner></LowerFirstBanner>
             <LowerSecendBanner></LowerSecendBanner>
         </div>

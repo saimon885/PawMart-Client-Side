@@ -7,18 +7,25 @@ const MyOrders = () => {
   const [order, setOrder] = useState([]);
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/myorders?email=${user.email}`)
+      fetch(
+        `https://my-assignment-10-flax.vercel.app/myorders?email=${user.email}`,
+        {
+          headers: {
+            authorization: `Bearer ${user.accessToken}`,
+          },
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
-          console.log("after Order", data);
+          // console.log("after Order", data);
           setOrder(data);
         })
-        .catch((error) => console.error("Error fetching orders:", error));
+        .catch(() => {});
     }
   }, [user]);
 
   const handleDelete = (id) => {
-    console.log(id);
+    // console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -26,20 +33,20 @@ const MyOrders = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes, cancel it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/myorders/${id}`, {
+        fetch(`https://my-assignment-10-flax.vercel.app/myorders/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
-          .then((data) => {
-            console.log("after delete", data);
+          .then(() => {
+            // console.log("after delete", data);
             const remaining = order.filter((list) => list._id !== id);
             setOrder(remaining);
           });
         Swal.fire({
-          title: "Deleted!",
+          title: "Cancel!",
           text: "Your Order has been Cancel.",
           icon: "success",
         });

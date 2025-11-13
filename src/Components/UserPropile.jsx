@@ -27,7 +27,7 @@ const UserPropile = () => {
     });
   }, []);
   return (
-    <div className="  my-8">
+    <div className=" my-8">
       <title>Your-Profile</title>
       <div className="flex gap-8 flex-col md:flex-row  justify-center items-center">
         <div

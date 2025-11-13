@@ -8,7 +8,12 @@ import {
   FaRegStar,
 } from "react-icons/fa6";
 import { FcCurrencyExchange } from "react-icons/fc";
-import { MdEmail, MdOutlineDateRange } from "react-icons/md";
+import {
+  MdCancel,
+  MdEmail,
+  MdLocalGroceryStore,
+  MdOutlineDateRange,
+} from "react-icons/md";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../AuthProvider/AuthContext";
 import { toast } from "react-toastify";
@@ -17,7 +22,7 @@ import "aos/dist/aos.css";
 const SingleListingDetails = ({ data }) => {
   const { user } = use(AuthContext);
   const navigate = useNavigate();
-  console.log(data);
+  // console.log(data);
   const {
     category,
     date,
@@ -59,7 +64,7 @@ const SingleListingDetails = ({ data }) => {
       phone,
       additionalNotes,
     };
-    fetch("http://localhost:3000/orders", {
+    fetch("https://my-assignment-10-flax.vercel.app/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -86,11 +91,11 @@ const SingleListingDetails = ({ data }) => {
       <title>PetBond-details</title>
       <div
         data-aos="fade-up"
-        className=" bg-white text-black flex flex-col lg:flex-row py-8 shadow-sm rounded-2xl space-y-4 md:space-y-0 px-5 items-center gap-10 md:gap-20  border border-dotted"
+        className=" bg-white mx-5 md:mx-10 text-black flex flex-col lg:flex-row py-8 shadow-sm rounded-2xl space-y-4 md:space-y-0 px-5 items-center gap-10 md:gap-20  border border-dotted"
       >
         <div
           data-aos="fade-left"
-          className="w-full bg-white  lg:w-[1000px] border-b md:border-0 pb-6 md:pb-0 border-dashed h-[300] lg:h-[400px]  p-4"
+          className="w-full bg-white  lg:w-[1000px] border-b md:border-0 pb-6 md:pb-0 border-dashed h-[300] md:h-[450] lg:h-[400px]  p-4"
         >
           <img
             className=" mx-auto w-full h-full shadow p-2 rounded-2xl "
@@ -151,14 +156,16 @@ const SingleListingDetails = ({ data }) => {
 
             <button className="btn btn-primary">
               {user.email === email ? (
-                <span>This is Your Product!</span>
+                <span className="flex gap-1 items-center">
+                  This is Your Product! <MdCancel size={21} />
+                </span>
               ) : category === "Pets (Adoption)" ? (
                 <span onClick={handleModel} className="flex gap-1">
-                  Adopt <FaArrowRightLong size={21} />
+                  Adopt <MdLocalGroceryStore size={21} />
                 </span>
               ) : (
                 <span onClick={handleModel} className="flex gap-1">
-                  Order Now <FaArrowRightLong size={21} />
+                  Order Now <MdLocalGroceryStore size={21} />
                 </span>
               )}
             </button>
@@ -175,7 +182,7 @@ const SingleListingDetails = ({ data }) => {
                 <div className="flex gap-4">
                   <div>
                     {/* Name */}
-                    <label className="label">Buyer Name</label>
+                    <label className="label text-black">Buyer Name</label>
                     <input
                       type="text"
                       name="name"
@@ -188,7 +195,7 @@ const SingleListingDetails = ({ data }) => {
                   </div>
                   <div>
                     {/* Email */}
-                    <label className="label">Email</label>
+                    <label className="label text-black">Email</label>
                     <input
                       type="text"
                       name="email"
@@ -201,7 +208,7 @@ const SingleListingDetails = ({ data }) => {
                 {/* Id */}
 
                 <div>
-                  <label className="label">Listing Name</label>
+                  <label className="label text-black">Listing Name</label>
                   <input
                     type="text"
                     name="productname"
@@ -210,7 +217,7 @@ const SingleListingDetails = ({ data }) => {
                     className="input focus:border-0 w-full focus:outline-gray-200"
                   />
                 </div>
-                <label className="label">Listing Id</label>
+                <label className="label text-black">Listing Id</label>
                 <input
                   type="text"
                   name="listingid"
@@ -222,7 +229,7 @@ const SingleListingDetails = ({ data }) => {
                 <div className="flex gap-4">
                   <div>
                     {/* Quantity */}
-                    <label className="label">Quantity</label>
+                    <label className="label text-black">Quantity</label>
                     <input
                       type="text"
                       name="quantity"
@@ -233,7 +240,7 @@ const SingleListingDetails = ({ data }) => {
                   </div>
                   <div>
                     {/* price */}
-                    <label className="label">Price</label>
+                    <label className="label text-black">Price</label>
                     <input
                       type="text"
                       name="price"
@@ -247,7 +254,7 @@ const SingleListingDetails = ({ data }) => {
                 <div className="flex gap-4">
                   <div>
                     {/* Location */}
-                    <label className="label">Address</label>
+                    <label className="label text-black">Address</label>
                     <input
                       type="text"
                       name="location"
@@ -258,7 +265,7 @@ const SingleListingDetails = ({ data }) => {
                   </div>
                   <div>
                     {/* Date */}
-                    <label className="label">Pick Up Date</label>
+                    <label className="label text-black">Pick Up Date</label>
                     <input
                       type="date"
                       name="date"
@@ -268,7 +275,7 @@ const SingleListingDetails = ({ data }) => {
                   </div>
                 </div>
                 {/* Number */}
-                <label className="label">Phone Number</label>
+                <label className="label text-black">Phone Number</label>
                 <input
                   type="number"
                   name="number"
@@ -278,7 +285,7 @@ const SingleListingDetails = ({ data }) => {
                 />
                 {/* Additional Notes */}
                 <div>
-                  <label className="label font-medium mb-1.5">
+                  <label className="label font-medium text-black mb-1.5">
                     Additional Notes
                   </label>
                   <textarea

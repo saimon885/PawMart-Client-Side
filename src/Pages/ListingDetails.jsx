@@ -7,7 +7,7 @@ const ListingDetails = () => {
   //   console.log(ListingData);
 
   return (
-    <div>
+    <div className="mx-5 md:mx-10">
       {ListingData.map((data) => (
         <SingleListingDetails key={data._id} data={data}></SingleListingDetails>
       ))}
