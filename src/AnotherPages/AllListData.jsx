@@ -1,14 +1,28 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 import SingleRecentCategory from "../Pages/SingleRecentCategory";
+import { useTypewriter } from "react-simple-typewriter";
 
 const AllListData = () => {
   const alldata = useLoaderData();
+  const [text] = useTypewriter({
+    words: [
+      "Pets & Supplies",
+      "Pets (Adoption)",
+      "Accessories",
+      "Pet Care Products",
+    ],
+    loop: {},
+    typeSpeed: 120,
+    deleteSpeed: 80,
+  });
   const [searchdata, setSearchData] = useState(alldata);
   //   console.log(alldata);
   const handleSerch = (e) => {
     e.preventDefault();
-    const search_text = e.target.serchinput.value;
+    const text = e.target.serchinput.value;
+    const search_text = text.trim().toLowerCase();
+    // console.log(search_text);
     // console.log(search_text);
     fetch(
       `https://my-assignment-10-flax.vercel.app/search?search=${search_text}`
@@ -25,17 +39,24 @@ const AllListData = () => {
   return (
     <div className="mx-5 md:mx-10">
       <title>PetBond-Pets & Supplies</title>
+      <div className="text-3xl text-center gap-2 flex justify-center items-center mx-auto font-bold mb-5">
+        <img className="w-[40px]"
+          src="https://img.icons8.com/?size=48&id=GzyPUsSOh1UV&format=png"
+          alt=""
+        />
+        {text}
+      </div>
       <div className="flex items-center justify-between mb-10">
         <div></div>
         <form onSubmit={handleSerch} className="text-center">
           <div className="join">
             <div>
-              <label className="input validator max-w-70 join-item">
+              <label className="input validator w-xs join-item">
                 <input
                   className="w-full"
                   type="search"
                   name="serchinput"
-                  placeholder="Search Product.."
+                  placeholder="Search By Name.."
                 />
               </label>
             </div>

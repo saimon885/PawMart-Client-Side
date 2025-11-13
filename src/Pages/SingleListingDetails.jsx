@@ -91,7 +91,7 @@ const SingleListingDetails = ({ data }) => {
       <title>PetBond-details</title>
       <div
         data-aos="fade-up"
-        className=" bg-white mx-5 md:mx-10 text-black flex flex-col lg:flex-row py-8 shadow-sm rounded-2xl space-y-4 md:space-y-0 px-5 items-center gap-10 md:gap-20  border border-dotted"
+        className=" bg-white  text-black flex flex-col lg:flex-row py-8 shadow-sm rounded-2xl space-y-4 md:space-y-0 px-5 items-center gap-10 md:gap-20  border border-dotted"
       >
         <div
           data-aos="fade-left"

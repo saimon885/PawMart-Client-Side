@@ -55,8 +55,11 @@ const MyOrders = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="mx-5">
       <title>PetBond-MyOrders</title>
+       <div>
+        <h1 className="text-center font-bold text-3xl mb-5 text-secondary">My-Orders</h1>
+      </div>
       <div className="overflow-x-auto rounded-box border border-base-content/4 bg-base-100">
         <table className="table">
           {/* head */}

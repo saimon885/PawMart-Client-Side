@@ -1,6 +1,6 @@
 - Website Name : PetBond
 - Live URL : https://petbond-project.netlify.app/
-- Technologys : react,react router,react-icons,firebase,aos,react-simple-typewriter,react-toastify,sweetalert2,swiper,typewriter-effect
+- Technologys : react,react router,tailwind css, daisy ui ,react-icons,firebase,aos,react-simple-typewriter,react-toastify,sweetalert2,swiper,typewriter-effect
 
 * This website is a petbond website, meaning friendship between pets and humans. Here, any user can buy or sell any pet product or pet.Let's give some detailed information about the navar of the project. On the left side of the navbar, there is the website logo, in the middle there are some routes and on the right side there is dark and light mode. If someone wants to see his website, someone can see it or like mode. Then there are register and login buttons. If the user wants to visit the complete information of the website or the entire website properly, then he must login or register.
 
