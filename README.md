@@ -1,7 +1,8 @@
-- Website Name : PetBond
-- Live URL : https://petbond-project.netlify.app/
-- Technologys : react,react router,tailwind css, daisy ui ,react-icons,firebase,aos,react-simple-typewriter,react-toastify,sweetalert2,swiper,typewriter-effect
-
+![My GitHub Banner](https://i.ibb.co.com/4gKXkjgF/Screenshot-2025-11-19-161129.png)
+<h1>Website Name : PetBond</h1>
+<h2>Clent Side Live URL : https://petbond-project.netlify.app/</h2>
+<h4> Technologys : react,react router,tailwind css, daisy ui ,react-icons,firebase,aos,react-simple-typewriter,react-toastify,sweetalert2,swiper,typewriter-effect</h4>
+<h2>Description : </h2>
 * This website is a petbond website, meaning friendship between pets and humans. Here, any user can buy or sell any pet product or pet.Let's give some detailed information about the navar of the project. On the left side of the navbar, there is the website logo, in the middle there are some routes and on the right side there is dark and light mode. If someone wants to see his website, someone can see it or like mode. Then there are register and login buttons. If the user wants to visit the complete information of the website or the entire website properly, then he must login or register.
 
 * In this project, first a home page is given. Inside that home page, a navbar and three banner sliders are used, and some information about pets is written inside it. Then for the convenience of the user, the user can find his desired product or pet according to the category. Then some information is given about what is our duty towards pets. Then pictures of some people who serve pets are given. Finally, a footer is given which is used in all websites.
