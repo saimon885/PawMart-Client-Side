@@ -1,14 +1,130 @@
 ![My GitHub Banner](https://i.ibb.co.com/4gKXkjgF/Screenshot-2025-11-19-161129.png)
-<h1>Website Name : PetBond</h1>
-<h2>Clent Side Live URL : https://petbond-project.netlify.app/</h2>
-<h4> Technologys : react,react router,tailwind css, daisy ui ,react-icons,firebase,aos,react-simple-typewriter,react-toastify,sweetalert2,swiper,typewriter-effect</h4>
-<h2>Description : </h2>
-* This website is a petbond website, meaning friendship between pets and humans. Here, any user can buy or sell any pet product or pet.Let's give some detailed information about the navar of the project. On the left side of the navbar, there is the website logo, in the middle there are some routes and on the right side there is dark and light mode. If someone wants to see his website, someone can see it or like mode. Then there are register and login buttons. If the user wants to visit the complete information of the website or the entire website properly, then he must login or register.
+# 🐾 PetBond – Friendship Between Pets & Humans
 
-* In this project, first a home page is given. Inside that home page, a navbar and three banner sliders are used, and some information about pets is written inside it. Then for the convenience of the user, the user can find his desired product or pet according to the category. Then some information is given about what is our duty towards pets. Then pictures of some people who serve pets are given. Finally, a footer is given which is used in all websites.
+🔗 **Live Website:** https://petbond-project.netlify.app/
 
-* The cards that are arranged according to the category of the home page or in the pet & supplies page have a product image name and some light information about it. Whenever a user clicks on the details button, he will find all the details of the product. From there, if he wants, if he does not like the product, he can back out or if he likes the product, he can buy that product. When he clicks on the order now button to buy the product, a model will open in front of him and he can buy the product using its detailed information from there. Moreover, there is a search bar in the pets and supplies page, if anyone wants, he can search for the product he needs and buy it from here.
+PetBond is a modern pet marketplace web application where users can **buy, sell, and explore pet products and pets**, building a strong bond between pets and humans.
 
-* Add listing and my listing These two pages normally have some information. In the add list, if a user wants to create a list of the product he wants to sell and sell it, but he must be logged in to the website, otherwise he will not be able to access this page. My listing page When he adds a product, he will be able to see the name, category, location, and other things of the product he has added. There is an update and delete button here, the user can update or delete his product if he wants.
+---
 
-* This page will be visible only when a user is logged in. And when someone orders a product from the product list, that order will be submitted to My Order from where he can see the details of the entire product and if he feels that he does not need the product, then he can cancel the product.
+## 🚀 Features
+
+- 🐶 Buy & Sell pet products and pets
+- 🔐 Authentication (Login / Register required for full access)
+- 🌗 Dark & Light Mode
+- 🔍 Search pets & products easily
+- 🗂 Category-based product listing
+- 🛒 Order & cancel products
+- ➕ Add, ✏️ Update & ❌ Delete own listings
+- 📦 My Orders & My Listings dashboard
+- 🎨 Modern UI with smooth animations
+
+---
+
+## 🧭 Navbar Overview
+
+- **Left:** Website Logo  
+- **Middle:** Navigation Routes  
+- **Right:**  
+  - Dark / Light Mode toggle  
+  - Login & Register buttons  
+  - User profile (after login)
+
+⚠️ Full website access is available **only after login or registration**.
+
+---
+
+## 🏠 Home Page Overview
+
+The Home page includes:
+
+- 🔹 Responsive Navbar  
+- 🎞 Three interactive banner sliders  
+- 🐾 Pet & product information  
+- 📂 Category-wise product display  
+- ❤️ Pet care & responsibility section  
+- 👥 People who serve pets showcase  
+- 📌 Reusable Footer  
+
+---
+
+## 🐕 Pets & Supplies Page
+
+- 🖼 Product cards with:
+  - Image
+  - Name
+  - Short description
+- 🔍 Search bar to find desired products
+- 🔎 **Details Button** shows full product info
+- 🛍 **Order Now** button opens a modal to confirm purchase
+
+---
+
+## ➕ Add Listing Page (Protected)
+
+- Only accessible for logged-in users
+- Users can:
+  - Add pet or product for selling
+  - Provide category, price, location & details
+
+---
+
+## 📋 My Listings Page (Protected)
+
+- Displays all products added by the user
+- Shows:
+  - Product name
+  - Category
+  - Location
+- Actions:
+  - ✏️ Update product
+  - ❌ Delete product
+
+---
+
+## 🛒 My Orders Page (Protected)
+
+- Displays all ordered products
+- Users can:
+  - View full order details
+  - ❌ Cancel orders if needed
+
+---
+
+## 🔐 Authentication & Security
+
+- Firebase Authentication
+- Protected Routes for:
+  - Add Listing
+  - My Listings
+  - My Orders
+
+---
+
+## 🛠 Technologies Used
+
+### Frontend
+- React
+- React Router
+- Tailwind CSS
+- DaisyUI
+- React Icons
+
+### Libraries & Tools
+- Firebase
+- AOS
+- Swiper
+- React Toastify
+- SweetAlert2
+- React Simple Typewriter
+- Typewriter Effect
+
+---
+
+## 📦 Installation & Setup
+
+```bash
+git clone https://github.com/your-username/petbond-client.git
+cd petbond-client
+npm install
+npm run dev
