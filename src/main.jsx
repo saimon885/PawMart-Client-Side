@@ -10,8 +10,16 @@ import { ToastContainer } from "react-toastify";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={2500}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        draggable
+      />
       <RouterProvider router={router}></RouterProvider>
     </AuthProvider>
-  </StrictMode>
+  </StrictMode>,
 );

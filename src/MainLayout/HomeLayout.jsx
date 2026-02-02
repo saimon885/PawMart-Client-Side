@@ -9,13 +9,15 @@ const HomeLayout = () => {
   return (
     <div>
       <title>PetBond-Home</title>
-      <div className="mx-2 md:mx-5">
+      <div className="fixed top-0 left-0 w-full z-50">
         <Navbar></Navbar>
       </div>
-      <Banner></Banner>
+      <div className="pt-18">
+        <Banner></Banner>
+      </div>
       <div>
         <Category></Category>
-        <div>
+        <div className="">
           <Outlet></Outlet>
         </div>
       </div>

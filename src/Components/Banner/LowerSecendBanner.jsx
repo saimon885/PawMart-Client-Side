@@ -4,6 +4,8 @@ import man2 from "../../assets/man2.png";
 import man3 from "../../assets/man3.png";
 import man4 from "../../assets/man4.png";
 import Aos from "aos";
+import "aos/dist/aos.css";
+
 const LowerSecendBanner = () => {
   useEffect(() => {
     Aos.init({
@@ -11,70 +13,52 @@ const LowerSecendBanner = () => {
       once: true,
     });
   }, []);
+
+  const heroes = [
+    { id: 1, name: "Herry Mccarthy", img: man1, role: "Rescue Specialist" },
+    { id: 2, name: "Bralyen Vaughn", img: man2, role: "Pet Care Expert" },
+    { id: 3, name: "Jarmine Garzia", img: man3, role: "Volunteer Head" },
+    { id: 4, name: "Nowin Rashid", img: man4, role: "Senior Vet" },
+  ];
+
   return (
-    <div data-aos="fade-up">
-      <div className="">
-        <p className="text-3xl text-center font-bold mt-8 mb-3 ">
+    <div className="max-w-6xl mx-auto py-16 px-4">
+      <div data-aos="fade-up" className="text-center mb-12">
+        <h2 className="text-xl md:text-2xl font-bold  tracking-tight">
           Meet Our Pet Heroes
+        </h2>
+        <p className="text-slate-500 mt-2 text-sm md:text-base">
+          The dedicated souls behind every successful adoption.
         </p>
       </div>
 
-      <div
-        data-aos="fade-right"
-        className="grid grid-cols-2 mt-5 gap-7 md:gap-8 md:grid-cols-4 items-center"
-      >
-        <div className="space-y-4 transition-all duration-300 hover:-translate-y-2">
-          <div className="bg-[#E5E5E5] rounded-2xl">
-            {" "}
-            <img
-              className=" w-[200px] md:w-[300px] mx-auto"
-              src={man1}
-              alt=""
-            />
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-10">
+        {heroes.map((hero, index) => (
+          <div
+            key={hero.id}
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
+            className="group cursor-default"
+          >
+            <div className="relative overflow-hidden bg-slate-50 rounded-3xl border border-slate-100 transition-all duration-500 group-hover:shadow-xl group-hover:shadow-slate-200/50 group-hover:-translate-y-2">
+              <img
+                className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105"
+                src={hero.img}
+                alt={hero.name}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+
+            <div className="text-center mt-5">
+              <h3 className="text-lg md:text-xl font-bold  transition-colors ">
+                {hero.name}
+              </h3>
+              <p className="text-xs md:text-sm font-medium text-slate-400 uppercase tracking-widest mt-1">
+                {hero.role}
+              </p>
+            </div>
           </div>
-          <div className="text-center">
-            <h1 className="text-2xl font-medium">Herry Mccarthy</h1>
-          </div>
-        </div>
-        <div className="space-y-4 transition-all duration-300 hover:-translate-y-2">
-          <div className="bg-[#E5E5E5] rounded-2xl">
-            {" "}
-            <img
-              className=" w-[200px] md:w-[300px]  mx-auto"
-              src={man2}
-              alt=""
-            />
-          </div>
-          <div className="text-center">
-            <h1 className="text-2xl font-medium ">Bralyen vaughn</h1>
-          </div>
-        </div>
-        <div className="space-y-4 transition-all duration-300 hover:-translate-y-2">
-          <div className="bg-[#E5E5E5] rounded-2xl">
-            {" "}
-            <img
-              className=" w-[200px] md:w-[300px] mx-auto"
-              src={man3}
-              alt=""
-            />
-          </div>
-          <div className="text-center">
-            <h1 className="text-2xl font-medium">Jarmine Garzia</h1>
-          </div>
-        </div>
-        <div className="space-y-4 transition-all duration-300 hover:-translate-y-2">
-          <div className="bg-[#E5E5E5] rounded-2xl">
-            {" "}
-            <img
-              className=" w-[200px] md:w-[300px]  mx-auto"
-              src={man4}
-              alt=""
-            />
-          </div>
-          <div className="text-center">
-            <h1 className="text-2xl font-medium">Nowin Rashid</h1>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

@@ -2,16 +2,22 @@ import React, { use, useEffect } from "react";
 import { AuthContext } from "../AuthProvider/AuthContext";
 import { toast } from "react-toastify";
 import Aos from "aos";
+import "aos/dist/aos.css";
 
 const UserPropile = () => {
   const { user, updateuser, setUser } = use(AuthContext);
+
+  useEffect(() => {
+    Aos.init({ duration: 800, once: true });
+  }, []);
+
   const handleupdate = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const photourl = e.target.photo.value;
     updateuser({ displayName: name, photoURL: photourl })
       .then(() => {
-        toast.success("User Update Successful.");
+        toast.success("Profile Updated Successfully!");
         setUser({
           ...user,
           displayName: name,
@@ -20,56 +26,77 @@ const UserPropile = () => {
       })
       .catch((error) => toast.error(error.code));
   };
-  useEffect(() => {
-    Aos.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
+
   return (
-    <div className=" my-8">
-      <title>Your-Profile</title>
-      <div className="flex gap-8 flex-col md:flex-row  justify-center items-center">
-        <div
-          data-aos="fade-right"
-          className=" bg-[#636e72] rounded-2xl shadow-2xl text-white space-y-2 text-center px-4 py-6 lg:text-left"
+    <div className="max-w-4xl mx-auto my-12 px-4 font-sans">
+      <title>Profile | {user?.displayName}</title>
+      
+      <div className="flex flex-col md:flex-row gap-10 items-center justify-center">
+        
+        <div 
+          data-aos="fade-up" 
+          className="w-full md:w-80 bg-white border border-slate-100 rounded-3xl p-8 shadow-sm flex flex-col items-center text-center"
         >
-          <h1 className="text-center text-2xl font-medium">Your profile</h1>
-          <img
-            className="mx-auto rounded-full border-2 border-blue-900 shadow-sm"
-            src={user?.photoURL}
-            alt=""
-          />
-          <h1 className="text-center ">{user?.displayName}</h1>
-          <h2>{user?.email}</h2>
+          <div className="relative group">
+            <img
+              className="w-32 h-32 rounded-full object-cover border-4 border-slate-50 shadow-md transition-transform duration-300 group-hover:scale-105"
+              src={user?.photoURL}
+              alt="Profile"
+            />
+            <div className="absolute bottom-1 right-2 w-6 h-6 bg-green-500 border-4 border-white rounded-full"></div>
+          </div>
+          
+          <div className="mt-6">
+            <h1 className="text-xl font-bold text-slate-900">{user?.displayName}</h1>
+            <p className="text-sm text-slate-500 mt-1">{user?.email}</p>
+          </div>
+
+          <div className="w-full mt-8 pt-6 border-t border-slate-50">
+            <span className="px-4 py-1.5 bg-primary text-white text-xs font-bold rounded-full uppercase tracking-tighter">
+              Account Verified
+            </span>
+          </div>
         </div>
-        <div data-aos="fade-left" className="card w-full max-w-sm ">
-          <div className="card-body  shadow-2xl rounded-2xl">
-            <div className="border-b pb-2 border-dotted">
-              <h1 className="text-2xl">Update Your Profile</h1>
-            </div>
-            <form onSubmit={handleupdate}>
-              <label className="text-[17px] font-medium">Full Name</label>
+
+        <div 
+          data-aos="fade-up" 
+          data-aos-delay="100"
+          className="w-full max-w-md bg-white border border-slate-100 rounded-3xl p-8 shadow-sm"
+        >
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-slate-900">Settings</h2>
+            <p className="text-sm text-slate-500">Update your public profile information</p>
+          </div>
+
+          <form onSubmit={handleupdate} className="space-y-6">
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">Full Name</label>
               <input
                 type="text"
                 name="name"
-                defaultValue={user && user.displayName}
+                defaultValue={user?.displayName}
                 required
-                className="input w-full"
-                placeholder="Enter Your Name"
+                className="w-full px-4 py-3 bg-slate-50 border border-transparent rounded-xl focus:bg-white focus:border-slate-900 outline-none transition-all text-sm font-medium"
+                placeholder="John Doe"
               />
-              <label className="text-[17px] font-medium">Photo URL</label>
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">Photo URL</label>
               <input
                 type="text"
                 name="photo"
-                defaultValue={user && user.photoURL}
+                defaultValue={user?.photoURL}
                 required
-                className="input w-full"
-                placeholder="Enter Your PhotoURL"
+                className="w-full px-4 py-3 bg-slate-50 border border-transparent rounded-xl focus:bg-white focus:border-slate-900 outline-none transition-all text-sm font-medium"
+                placeholder="https://example.com/photo.jpg"
               />
-              <button className="btn btn-secondary mt-4">Update</button>
-            </form>
-          </div>
+            </div>
+
+            <button className="w-full bg-secondary text-white py-3.5 rounded-xl font-bold transition-all shadow-lg active:scale-[0.98] mt-2">
+              Save Changes
+            </button>
+          </form>
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ import {
   FaXTwitter,
   FaYoutube,
 } from "react-icons/fa6";
-import { FaPhoneAlt } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 const Footer = () => {
   return (
@@ -23,18 +23,34 @@ const Footer = () => {
               between pets and their owners
             </p>
             <div className="flex text-black gap-2">
-              <div className="bg-white cursor-pointer rounded-full p-2">
-                <FaXTwitter size={18} />
-              </div>
-              <div className="bg-white cursor-pointer rounded-full p-2">
+              <a
+                href="https://github.com/saimon885"
+                target="blank"
+                className="bg-white cursor-pointer rounded-full p-2"
+              >
+                <FaGithub size={20} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/saimon-hossan/"
+                target="blank"
+                className="bg-white cursor-pointer rounded-full p-2"
+              >
+                <FaLinkedin size={20} />
+              </a>
+              <a
+                href="https://www.facebook.com/saimon547674"
+                target="blank"
+                className="bg-white cursor-pointer rounded-full p-2"
+              >
                 <FaFacebookF size={18} />
-              </div>
-              <div className="bg-white cursor-pointer rounded-full p-2">
+              </a>
+              <a
+                href="https://www.instagram.com/saimon547674"
+                target="blank"
+                className="bg-white cursor-pointer rounded-full p-2"
+              >
                 <FaInstagram size={20} />
-              </div>
-              <div className="bg-white cursor-pointer rounded-full p-2">
-                <FaYoutube size={20} />
-              </div>
+              </a>
             </div>
           </nav>
           <nav className="space-y-2">

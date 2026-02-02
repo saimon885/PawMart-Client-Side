@@ -100,10 +100,10 @@ const MyListing = () => {
       });
   };
   return (
-    <div>
+    <div className="">
       <title>PetBond-MyList</title>
       <div>
-        <h1 className="text-center font-bold text-3xl mb-5 text-secondary">My-List</h1>
+        <h1 className="text-center font-bold text-2xl mb-5 text-secondary">My-List</h1>
       </div>
       <div className="overflow-x-auto mx-5 rounded-box border border-base-content/4 bg-base-100">
         <table className="table">

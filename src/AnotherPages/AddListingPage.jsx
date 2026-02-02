@@ -2,7 +2,7 @@ import React, { use } from "react";
 import { AuthContext } from "../AuthProvider/AuthContext";
 // import { format } from "date-fns";
 import { toast } from "react-toastify";
-
+import frame from "../util/confetti"
 const AddListingPage = () => {
   const { user } = use(AuthContext);
   const handleAddList = (e) => {
@@ -46,7 +46,8 @@ const AddListingPage = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          toast.success("List Added Successful.");
+          toast.success("List Added Successful");
+          frame(3);
           e.target.reset();
         }
       });
@@ -57,7 +58,7 @@ const AddListingPage = () => {
 
       <div className="flex justify-center mx-5 md:mx-10  items-center my-5">
         <div className="card w-4xs shadow-xl bg-white p-4">
-          <h1 className="text-5xl font-bold text-black heading-Font text-center my-3">
+          <h1 className="text-3xl font-bold text-black heading-Font text-center my-3">
             Add New List
           </h1>
           <form onSubmit={handleAddList}>
@@ -172,7 +173,7 @@ const AddListingPage = () => {
 
               <input
                 type="submit"
-                className="btn btn-primary mt-4"
+                className="btn btn-primary mt-4 skeleton bg-primary"
                 value="Add List"
               />
             </fieldset>
