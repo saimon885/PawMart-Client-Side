@@ -14,6 +14,13 @@ import MyListing from "../AnotherPages/MyListing";
 import PrivetRouter from "../Privetrouter/PrivetRouter";
 import MyOrders from "../AnotherPages/MyOrders";
 import UserPropile from "../Components/UserPropile";
+import DashboardLayout from "../MainLayout/DashboardLayout";
+import Success from "../Components/PaymentReleted/Success";
+import Canceled from "../Components/PaymentReleted/Canceled";
+import OrderHistory from "../Components/PaymentReleted/OrderHistory";
+import DashboardHome from "../AnotherPages/DashboardHome";
+import TotoalUsers from "../AnotherPages/TotoalUsers";
+import AboutUs from "../AnotherPages/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -30,22 +37,11 @@ export const router = createBrowserRouter([
         path: "details/:id",
         loader: ({ params }) =>
           fetch(
-            `https://my-assignment-10-flax.vercel.app/petListdata/details/${params.id}`
+            `https://my-assignment-10-flax.vercel.app/petListdata/details/${params.id}`,
           ),
-        element: (
-          <PrivetRouter>
-            <ListingDetails></ListingDetails>
-          </PrivetRouter>
-        ),
+        element: <ListingDetails></ListingDetails>,
       },
-      {
-        path: "addlistdata",
-        element: (
-          <PrivetRouter>
-            <AddListingPage></AddListingPage>
-          </PrivetRouter>
-        ),
-      },
+
       {
         path: "allListData",
         loader: () =>
@@ -53,21 +49,10 @@ export const router = createBrowserRouter([
         Component: AllListData,
       },
       {
-        path: "mylist",
-        element: (
-          <PrivetRouter>
-            <MyListing></MyListing>
-          </PrivetRouter>
-        ),
+        path: "aboutUs",
+        Component: AboutUs,
       },
-      {
-        path: "myorders",
-        element: (
-          <PrivetRouter>
-            <MyOrders></MyOrders>
-          </PrivetRouter>
-        ),
-      },
+
       {
         path: "userpropile",
         element: (
@@ -88,6 +73,64 @@ export const router = createBrowserRouter([
           fetch("https://my-assignment-10-flax.vercel.app/petListdata"),
         hydrateFallbackElement: <Loading></Loading>,
         Component: RecentCategoryData,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    Component: DashboardLayout,
+    children: [
+      {
+        index: true,
+        Component: DashboardHome,
+      },
+      {
+        path: "addlistdata",
+        element: (
+          <PrivetRouter>
+            <AddListingPage></AddListingPage>
+          </PrivetRouter>
+        ),
+      },
+      {
+        path: "mylist",
+        element: (
+          <PrivetRouter>
+            <MyListing></MyListing>
+          </PrivetRouter>
+        ),
+      },
+      {
+        path: "myorders",
+        element: (
+          <PrivetRouter>
+            <MyOrders></MyOrders>
+          </PrivetRouter>
+        ),
+      },
+      {
+        path: "payment-success",
+        Component: Success,
+      },
+      {
+        path: "payment-cancelled",
+        Component: Canceled,
+      },
+      {
+        path: "order_histry",
+        Component: OrderHistory,
+      },
+      {
+        path: "totalUsers",
+        Component: TotoalUsers,
+      },
+      {
+        path: "userpropile",
+        element: (
+          <PrivetRouter>
+            <UserPropile></UserPropile>
+          </PrivetRouter>
+        ),
       },
     ],
   },

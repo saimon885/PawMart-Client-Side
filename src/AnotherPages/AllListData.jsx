@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 import SingleRecentCategory from "../Pages/SingleRecentCategory";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
@@ -7,9 +7,9 @@ import { MdOutlinePets } from "react-icons/md";
 
 const AllListData = () => {
   const alldata = useLoaderData();
-  const [searchdata, setSearchData] = useState(alldata);
-  const [allListData] = useState(alldata);
-  const [loading, setLoading] = useState(false);
+  const [searchdata, setSearchData] = useState([]);
+  const [allListData, setAllListData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const [text] = useTypewriter({
     words: [
@@ -22,6 +22,15 @@ const AllListData = () => {
     typeSpeed: 100,
     deleteSpeed: 50,
   });
+
+  useEffect(() => {
+    setLoading(true);
+    if (alldata) {
+      setAllListData(alldata);
+      setSearchData(alldata);
+      setLoading(false);
+    }
+  }, [alldata]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -82,7 +91,6 @@ const AllListData = () => {
       </div>
 
       <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-white p-4 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/40 mb-12">
-        {/* Search Bar */}
         <form onSubmit={handleSearch} className="w-full md:max-w-md">
           <div className="relative group">
             <FiSearch
@@ -104,7 +112,6 @@ const AllListData = () => {
           </div>
         </form>
 
-        {/* Sort Filter */}
         <div className="flex items-center gap-3 w-full md:w-auto">
           <div className="hidden md:flex items-center gap-2 text-slate-400">
             <FiFilter size={18} />
@@ -128,16 +135,11 @@ const AllListData = () => {
 
       <div>
         {loading ? (
-          <div className=" text-center">
+          <div className="text-center">
             <div className="min-h-[80vh] flex flex-col justify-center items-center bg-white">
               <div className="relative flex justify-center items-center">
-                {/* Outer Pulsing Ring */}
                 <div className="absolute animate-ping h-16 w-16 rounded-full bg-slate-100 opacity-75"></div>
-
-                {/* Rotating border ring */}
                 <div className="h-14 w-14 rounded-full border-4 border-slate-100 border-t-slate-900 animate-spin"></div>
-
-                {/* Center Pet Icon */}
                 <div className="absolute text-slate-900 animate-bounce">
                   <MdOutlinePets size={24} />
                 </div>
@@ -152,7 +154,6 @@ const AllListData = () => {
                 </p>
               </div>
 
-              {/* Decorative dots */}
               <div className="flex gap-1.5 mt-4">
                 <div className="w-1.5 h-1.5 bg-slate-200 rounded-full animate-[bounce_1s_infinite_100ms]"></div>
                 <div className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-[bounce_1s_infinite_200ms]"></div>

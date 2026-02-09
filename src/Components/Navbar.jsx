@@ -34,13 +34,8 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Pets & Supplies", path: "/allListData" },
-    ...(user
-      ? [
-          { name: "Add Listing", path: "/addlistdata" },
-          { name: "My Listings", path: "/mylist" },
-          { name: "My Orders", path: "/myorders" },
-        ]
-      : []),
+    { name: "AboutUs", path: "/aboutUs" },
+    ...(user ? [{ name: "Dashbord", path: "/dashboard" }] : []),
   ];
 
   return (

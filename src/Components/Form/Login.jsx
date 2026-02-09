@@ -34,19 +34,41 @@ const Login = () => {
 
   const handlegoogle = () => {
     googleSignIn()
-      .then(() => {
-        toast.success("Joined with Google!");
-        navigate(from);
-      })
-      .catch((error) => toast.error(error.code));
-  };
+      .then((res) => {
+        const user = res.user;
 
+        const userInfo = {
+          name: user.displayName,
+          email: user.email,
+          photo: user.photoURL,
+        };
+
+        fetch("https://my-assignment-10-flax.vercel.app/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userInfo),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            toast.success("Joined with Google!");
+            navigate(from);
+          })
+          .catch((err) => {
+            console.error("DB Error:", err);
+
+            navigate(from);
+          });
+      })
+      .catch((err) => err.code);
+  };
   return (
     <div className="min-h-[85vh] flex items-center justify-center px-4 py-8">
       <title>Login | PetBond</title>
-      
-      <div 
-        data-aos="zoom-in" 
+
+      <div
+        data-aos="zoom-in"
         className="w-full max-w-[400px] bg-white border-2 border-slate-50 rounded-[2rem] shadow-2xl p-6 md:p-8 relative overflow-hidden"
       >
         {/* Subtle Pet Decoration */}
@@ -61,7 +83,9 @@ const Login = () => {
           <h1 className="text-2xl font-black text-slate-900 tracking-tight">
             Member Login
           </h1>
-          <p className="text-[13px] text-slate-500 font-medium">Ready to meet your new best friend?</p>
+          <p className="text-[13px] text-slate-500 font-medium">
+            Ready to meet your new best friend?
+          </p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-4 relative z-10">
@@ -84,7 +108,10 @@ const Login = () => {
               <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
                 Password
               </label>
-              <Link to="/reset" className="text-[10px] font-bold text-red-400 hover:text-red-600 transition-colors uppercase">
+              <Link
+                to="/reset"
+                className="text-[10px] font-bold text-red-400 hover:text-red-600 transition-colors uppercase"
+              >
                 Forgot?
               </Link>
             </div>
@@ -116,7 +143,9 @@ const Login = () => {
             <div className="w-full border-t border-slate-100"></div>
           </div>
           <div className="relative flex justify-center text-[10px] uppercase">
-            <span className="bg-white px-3 text-slate-300 font-bold tracking-[0.2em]">Quick Access</span>
+            <span className="bg-white px-3 text-slate-300 font-bold tracking-[0.2em]">
+              Quick Access
+            </span>
           </div>
         </div>
 

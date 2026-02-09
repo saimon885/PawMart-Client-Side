@@ -9,7 +9,7 @@ const HomeLayout = () => {
   return (
     <div>
       <title>PetBond-Home</title>
-      <div className="fixed top-0 left-0 w-full z-50">
+      <div className="fixed w-full z-50">
         <Navbar></Navbar>
       </div>
       <div className="pt-18">
