@@ -1,18 +1,19 @@
-import React from "react";
+import { Outlet } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import { Outlet } from "react-router";
 import Footer from "../Components/Footer";
+import ScrollToTop from "../ScrollToTop";
 
 const MainLayout = () => {
   return (
-    <div>
-      <div className=" fixed top-0 left-0 w-full z-50">
-        <Navbar></Navbar>
+    <div className="min-h-screen flex flex-col relative">
+      <ScrollToTop></ScrollToTop>
+      <div className="flex-grow sticky z-10">
+        <Navbar />
       </div>
-      <div className="pt-18">
-        <Outlet></Outlet>
-      </div>
-      <Footer></Footer>
+      <main className="flex-grow w-full pt-[64px] md:pt-[70px]">
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 };

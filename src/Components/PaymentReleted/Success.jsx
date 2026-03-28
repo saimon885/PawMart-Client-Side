@@ -12,7 +12,7 @@ const Success = () => {
     if (sessionId) {
       // method: "PATCH" ব্যবহার করুন
       fetch(
-        `https://my-assignment-10-flax.vercel.app/payment-success?session_id=${sessionId}`,
+        `https://my-assignment-10-lime.vercel.app/payment-success?session_id=${sessionId}`,
         {
           method: "PATCH",
           headers: {
@@ -34,8 +34,8 @@ const Success = () => {
             setPaymentInfo({ loading: false, success: false });
           }
         })
-        .catch((err) => {
-          console.error("Error:", err);
+        .catch(() => {
+          // console.error("Error:", err);
           setPaymentInfo({ loading: false, success: false });
         });
     }

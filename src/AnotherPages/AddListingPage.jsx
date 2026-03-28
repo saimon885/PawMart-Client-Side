@@ -2,7 +2,6 @@ import React, { use } from "react";
 import { AuthContext } from "../AuthProvider/AuthContext";
 import { toast } from "react-toastify";
 import frame from "../util/confetti";
-// Icons for watermark
 import { FaDog, FaCat, FaPaw } from "react-icons/fa";
 import { GiBirdMask, GiRabbit } from "react-icons/gi";
 
@@ -31,7 +30,7 @@ const AddListingPage = () => {
       date,
     };
 
-    fetch("https://my-assignment-10-flax.vercel.app/petListdata", {
+    fetch("https://my-assignment-10-lime.vercel.app/petListdata", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +40,7 @@ const AddListingPage = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          toast.success("List Added Successful");
+          toast.success("Your listing has been added successfully!");
           frame(3);
           e.target.reset();
         }
@@ -49,11 +48,11 @@ const AddListingPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50/50 py-10 relative overflow-hidden">
+    <div className="min-h-screen py-10 relative overflow-hidden bg-base-200 text-base-content">
       <title>PetBond - Add List</title>
 
-      {/* --- Watermarks Section --- */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.05] z-0">
+      {/* Watermarks */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.05] z-0 text-base-content">
         <FaDog className="absolute top-10 left-10 text-[150px] -rotate-12" />
         <FaCat className="absolute bottom-20 right-10 text-[130px] rotate-12" />
         <FaPaw className="absolute top-1/2 left-20 text-[80px] rotate-45" />
@@ -63,14 +62,13 @@ const AddListingPage = () => {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 relative z-10">
-        {/* Form Container */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="bg-base-100/90 backdrop-blur-sm rounded-2xl shadow-md border border-base-300 overflow-hidden">
           {/* Header */}
-          <div className="bg-white border-b border-gray-100 p-6">
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-800 text-center uppercase tracking-wide">
+          <div className="bg-base-100 border-b border-base-300 p-6">
+            <h1 className="text-2xl md:text-3xl font-bold text-base-content text-center uppercase tracking-wide">
               Add New List
             </h1>
-            <p className="text-gray-500 text-center mt-1 text-sm">
+            <p className="text-base-content/70 text-center mt-1 text-sm">
               Fill in the details to list your pet or product
             </p>
           </div>
@@ -78,27 +76,27 @@ const AddListingPage = () => {
           <form onSubmit={handleAddList} className="p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="md:col-span-2">
-                <label className="label font-semibold text-gray-700">
+                <label className="label font-semibold text-base-content">
                   Product/Pet Name
                 </label>
                 <input
                   type="text"
                   name="name"
                   required
-                  className="input input-bordered w-full focus:ring-2 focus:ring-primary/20 transition-all bg-white"
+                  className="input input-bordered w-full focus:ring-2 focus:ring-primary/20 transition-all bg-base-100 text-base-content"
                   placeholder="e.g. Golden Retriever, Cat Food"
                 />
               </div>
 
               <div className="md:col-span-2">
-                <label className="label font-semibold text-gray-700">
+                <label className="label font-semibold text-base-content">
                   Category
                 </label>
                 <select
                   defaultValue={""}
                   name="category"
                   required
-                  className="select select-bordered w-full focus:ring-2 focus:ring-primary/20 bg-white"
+                  className="select select-bordered w-full focus:ring-2 focus:ring-primary/20 bg-base-100 text-base-content"
                 >
                   <option value="" disabled>
                     Select category
@@ -111,33 +109,33 @@ const AddListingPage = () => {
               </div>
 
               <div>
-                <label className="label font-semibold text-gray-700">
+                <label className="label font-semibold text-base-content">
                   Price
                 </label>
                 <input
                   type="text"
                   name="price"
                   required
-                  className="input input-bordered w-full focus:ring-2 focus:ring-primary/20 bg-white"
+                  className="input input-bordered w-full focus:ring-2 focus:ring-primary/20 bg-base-100 text-base-content"
                   placeholder="Enter Price"
                 />
               </div>
 
               <div>
-                <label className="label font-semibold text-gray-700">
+                <label className="label font-semibold text-base-content">
                   Location
                 </label>
                 <input
                   type="text"
                   name="location"
                   required
-                  className="input input-bordered w-full focus:ring-2 focus:ring-primary/20 bg-white"
+                  className="input input-bordered w-full focus:ring-2 focus:ring-primary/20 bg-base-100 text-base-content"
                   placeholder="City, Country"
                 />
               </div>
 
               <div>
-                <label className="label font-semibold text-gray-700">
+                <label className="label font-semibold text-base-content">
                   Email
                 </label>
                 <input
@@ -145,43 +143,43 @@ const AddListingPage = () => {
                   name="email"
                   defaultValue={user?.email}
                   readOnly
-                  className="input input-bordered w-full bg-gray-100 cursor-not-allowed"
+                  className="input input-bordered w-full bg-base-200 text-base-content cursor-not-allowed"
                 />
               </div>
 
               <div>
-                <label className="label font-semibold text-gray-700">
+                <label className="label font-semibold text-base-content">
                   Pick Up Date
                 </label>
                 <input
                   type="date"
                   name="date"
                   required
-                  className="input input-bordered w-full focus:ring-2 focus:ring-primary/20 bg-white"
+                  className="input input-bordered w-full focus:ring-2 focus:ring-primary/20 bg-base-100 text-base-content"
                 />
               </div>
 
               <div className="md:col-span-2">
-                <label className="label font-semibold text-gray-700">
+                <label className="label font-semibold text-base-content">
                   Description
                 </label>
                 <textarea
                   name="description"
                   required
-                  className="textarea textarea-bordered w-full h-32 focus:ring-2 focus:ring-primary/20 bg-white"
+                  className="textarea textarea-bordered w-full h-32 focus:ring-2 focus:ring-primary/20 bg-base-100 text-base-content"
                   placeholder="Provide a detailed description..."
                 ></textarea>
               </div>
 
               <div className="md:col-span-2">
-                <label className="label font-semibold text-gray-700">
+                <label className="label font-semibold text-base-content">
                   Image URL
                 </label>
                 <input
                   type="url"
                   name="imageurl"
                   required
-                  className="input input-bordered w-full focus:ring-2 focus:ring-primary/20 bg-white"
+                  className="input input-bordered w-full focus:ring-2 focus:ring-primary/20 bg-base-100 text-base-content"
                   placeholder="https://example.com/image.jpg"
                 />
               </div>
@@ -190,7 +188,7 @@ const AddListingPage = () => {
             <div className="mt-8">
               <button
                 type="submit"
-                className="btn btn-primary w-full mt-4 skeleton bg-primary shadow-md hover:shadow-lg transition-all"
+                className="btn bg-primary skeleton  w-full mt-4 shadow-md  hover:shadow-lg transition-all"
               >
                 Add To List
               </button>

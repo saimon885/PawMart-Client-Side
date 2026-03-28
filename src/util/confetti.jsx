@@ -4,7 +4,7 @@ export default function frame(time) {
   if (!end) {
     end = Date.now() + time * 1000;
   }
-  console.log(end);
+  // console.log(end);
   // go Buckeyes!
   let colors = ["#DAA520", "#392f5a"];
   confetti({

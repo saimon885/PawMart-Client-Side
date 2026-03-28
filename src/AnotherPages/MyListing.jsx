@@ -21,7 +21,7 @@ const MyListing = () => {
     if (user) {
       setLoading(true);
       fetch(
-        `https://my-assignment-10-flax.vercel.app/mylistdata?email=${user.email}`,
+        `https://my-assignment-10-lime.vercel.app/mylistdata?email=${user.email}`,
         {
           headers: {
             authorization: `Bearer ${user.accessToken}`,
@@ -39,28 +39,20 @@ const MyListing = () => {
 
   const handleDelete = (id) => {
     Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      title: "Delete?",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://my-assignment-10-flax.vercel.app/mylistdata/${id}`, {
+        fetch(`https://my-assignment-10-lime.vercel.app/mylistdata/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then(() => {
-            const remaining = mylist.filter((list) => list._id !== id);
-            setMyList(remaining);
+            setMyList(mylist.filter((list) => list._id !== id));
           });
-        Swal.fire({
-          title: "Delete!",
-          text: "Your Listed Item has been deleted.",
-          icon: "success",
-        });
+
+        Swal.fire("Deleted!", "", "success");
       }
     });
   };
@@ -79,8 +71,7 @@ const MyListing = () => {
     const description = e.target.description.value;
     const image = e.target.imageurl.value;
     const email = e.target.email.value;
-    const currntDate = new Date();
-    const date = format(currntDate, "dd-MM-yyyy");
+    const date = format(new Date(), "dd-MM-yyyy");
 
     const NewUpdateList = {
       name,
@@ -94,129 +85,126 @@ const MyListing = () => {
       date,
     };
 
-    fetch(`https://my-assignment-10-flax.vercel.app/mylistdata/${id}`, {
+    fetch(`https://my-assignment-10-lime.vercel.app/mylistdata/${id}`, {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(NewUpdateList),
     })
       .then((res) => res.json())
       .then(() => {
         ModlaRef.current.close();
-        toast.success("List Update Successful.");
-
-        const updatedList = mylist.map((item) =>
-          item._id === id ? { ...item, ...NewUpdateList } : item,
+        toast.success("Your listing has been updated successfully!");
+        setMyList(
+          mylist.map((item) =>
+            item._id === id ? { ...item, ...NewUpdateList } : item,
+          ),
         );
-        setMyList(updatedList);
       });
   };
 
   if (loading) {
     return (
-      <div className="min-h-[80vh] flex flex-col justify-center items-center bg-white">
-        <div className="relative flex justify-center items-center">
-          <div className="absolute animate-ping h-16 w-16 rounded-full bg-slate-100 opacity-75"></div>
-          <div className="h-14 w-14 rounded-full border-4 border-slate-100 border-t-slate-900 animate-spin"></div>
-          <div className="absolute text-slate-900 animate-bounce">
-            <MdOutlinePets size={24} />
-          </div>
-        </div>
-        <div className="mt-6 flex flex-col items-center gap-1">
-          <h3 className="text-sm font-bold tracking-[0.3em] uppercase text-slate-800 animate-pulse">
-            Loading
-          </h3>
-          <p className="text-[10px] text-slate-400 font-medium">
-            Fetching your furry friends...
-          </p>
+      <div className="min-h-[80vh] flex flex-col justify-center items-center text-base-content">
+        <div className="relative">
+          <div className="absolute animate-ping h-16 w-16 rounded-full bg-base-300 opacity-75"></div>
+          <div className="h-14 w-14 rounded-full border-4 border-base-300 border-t-primary animate-spin"></div>
+          <MdOutlinePets className="absolute text-primary animate-bounce" />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="py-10">
-      <title>PetBond-MyList</title>
-      <h1 className="text-center font-bold text-2xl mb-8 text-secondary uppercase tracking-wider">
-        My-List
+    <div className="py-6 md:py-10 px-4 ">
+      <h1 className="text-center font-bold text-xl md:text-2xl mb-6 text-primary uppercase">
+        My Listings
       </h1>
 
       {mylist.length === 0 ? (
-        <div className="max-w-4xl mx-auto px-5">
-          <div className="flex flex-col items-center justify-center py-16 bg-slate-50 rounded-[2rem] border-2 border-dashed border-slate-200">
-            <div className="relative mb-6">
-              <div className="bg-white p-6 rounded-full shadow-sm">
-                <MdPostAdd size={60} className="text-slate-300" />
-              </div>
-              <MdOutlinePets
-                className="absolute -top-2 -right-2 text-secondary animate-bounce"
-                size={24}
-              />
-            </div>
-            <h2 className="text-2xl font-bold text-slate-700">
-              No Listings Yet!
-            </h2>
-            <p className="text-slate-500 mt-2 mb-8 text-center max-w-xs">
-              It seems you haven't added any pets or products to your list.
-            </p>
-            <Link
-              to="/dashboard/addlistdata"
-              className="btn btn-secondary text-white px-10 rounded-xl shadow-lg hover:shadow-secondary/20 transition-all"
-            >
-              Add Your First List
-            </Link>
-          </div>
+        <div className="flex flex-col items-center justify-center py-12 bg-base-200 rounded-2xl">
+          <MdPostAdd size={60} className="text-base-content/30" />
+          <h2 className="text-xl font-bold mt-4">No Listings Yet</h2>
+          <Link to="/dashboard/addlistdata" className="btn btn-primary mt-4">
+            Add Listing
+          </Link>
         </div>
       ) : (
-        <div className="overflow-x-auto mx-5 rounded-box border border-base-content/4 bg-base-100 shadow-sm">
-          <table className="table">
-            <thead>
-              <tr className="bg-[#f3f4f6] text-black">
-                <th>S/N</th>
-                <th>Product/Listing Name</th>
-                <th>Category</th>
-                <th>Price</th>
-                <th>Location</th>
-                <th>PickUp Date</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {mylist.map((data, index) => (
-                <tr
-                  key={data._id}
-                  className="hover:bg-slate-50/50 transition-colors"
-                >
-                  <td>{index + 1}</td>
-                  <td className="font-medium text-slate-700">{data.name}</td>
-                  <td>
-                    <span className="badge badge-ghost badge-sm">
-                      {data.category}
-                    </span>
-                  </td>
-                  <td className="font-bold">{data.price}</td>
-                  <td>{data.location}</td>
-                  <td>{data.date}</td>
-                  <td className="flex flex-row gap-2">
-                    <button
-                      onClick={handleUpdata}
-                      className="btn btn-primary btn-sm rounded-lg"
-                    >
-                      Update <MdBrowserUpdated size={18} />
-                    </button>
-                    <button
-                      onClick={() => handleDelete(data._id)}
-                      className="btn btn-secondary btn-sm rounded-lg"
-                    >
-                      Delete <MdDeleteForever size={18} />
-                    </button>
-                  </td>
+        <>
+          {/* Desktop Table */}
+          <div className="hidden md:block overflow-x-auto border rounded-xl bg-base-100">
+            <table className="table">
+              <thead className="bg-base-200">
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Location</th>
+                  <th>Date</th>
+                  <th>Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {mylist.map((data, index) => (
+                  <tr key={data._id}>
+                    <td>{index + 1}</td>
+                    <td>{data.name}</td>
+                    <td>
+                      <span className="badge badge-outline">
+                        {data.category}
+                      </span>
+                    </td>
+                    <td className="font-bold">{data.price}</td>
+                    <td>{data.location}</td>
+                    <td>{data.date}</td>
+                    <td className="flex gap-2">
+                      <button
+                        onClick={handleUpdata}
+                        className="btn btn-primary btn-xs"
+                      >
+                        Update
+                      </button>
+                      <button
+                        onClick={() => handleDelete(data._id)}
+                        className="btn btn-secondary btn-xs"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Mobile Card */}
+          <div className="md:hidden space-y-4">
+            {mylist.map((data) => (
+              <div key={data._id} className="bg-base-200 p-4 rounded-xl shadow">
+                <h3 className="font-bold text-lg">{data.name}</h3>
+                <p className="text-sm">{data.category}</p>
+                <p className="font-bold">{data.price}</p>
+                <p className="text-sm">{data.location}</p>
+                <p className="text-xs">{data.date}</p>
+
+                <div className="flex gap-2 mt-3">
+                  <button
+                    onClick={handleUpdata}
+                    className="btn btn-primary btn-xs"
+                  >
+                    Update
+                  </button>
+                  <button
+                    onClick={() => handleDelete(data._id)}
+                    className="btn btn-secondary btn-xs"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
       )}
 
       {/* Modal Section */}
@@ -227,148 +215,143 @@ const MyListing = () => {
               ref={ModlaRef}
               className="modal modal-bottom sm:modal-middle"
             >
-              <div className="modal-box">
-                <form onSubmit={updateListData}>
-                  <fieldset className="fieldset bg-white">
-                    {/* Name */}
-
-                    <label className="label">Product/Pet Name</label>
-
+              <div className="modal-box p-6 sm:p-8  dark:bg-gray-900 rounded-2xl shadow-lg border border-base-300 dark:border-gray-700">
+                <form onSubmit={updateListData} className="space-y-4">
+                  {/* Name */}
+                  <div>
+                    <label className="label text-base-content dark:text-base-100 font-medium">
+                      Product / Pet Name
+                    </label>
                     <input
                       type="text"
                       name="name"
                       defaultValue={data.name}
                       required
-                      className="input focus:border-0 focus:outline-gray-200 w-full"
+                      className="input input-bordered w-full focus:ring-2 focus:ring-primary focus:outline-none dark:bg-gray-800 dark:text-base-100 dark:border-gray-600"
                       placeholder="Enter Product/Pet Name"
                     />
+                  </div>
 
-                    <label className="label">Email</label>
-
+                  {/* Email */}
+                  <div>
+                    <label className="label text-base-content dark:text-base-100 font-medium">
+                      Email
+                    </label>
                     <input
                       type="email"
                       name="email"
                       defaultValue={data.email}
                       readOnly
-                      className="input focus:border-0 focus:outline-gray-200 w-full"
-                      placeholder="Enter Product/Pet Name"
+                      className="input input-bordered w-full bg-base-200 dark:bg-gray-800 text-base-content dark:text-base-100 cursor-not-allowed"
                     />
+                  </div>
 
-                    <input
-                      type="text"
-                      name="proId"
-                      defaultValue={data._id}
-                      readOnly
-                      className="input focus:border-0 hidden focus:outline-gray-200 w-full"
-                      placeholder="Enter Product/Pet Name"
-                    />
+                  {/* Hidden Product ID */}
+                  <input
+                    type="text"
+                    name="proId"
+                    defaultValue={data._id}
+                    readOnly
+                    className="hidden"
+                  />
 
-                    {/* Category Dropdown */}
+                  {/* Category Dropdown */}
+                  <div>
+                    <label className="label text-base-content dark:text-base-100 font-medium">
+                      Category
+                    </label>
+                    <select
+                      defaultValue={data.category}
+                      name="category"
+                      required
+                      className="select select-bordered w-full focus:ring-2 focus:ring-primary dark:bg-gray-800 dark:text-base-100 dark:border-gray-600"
+                    >
+                      <option value="" disabled>
+                        Select category
+                      </option>
+                      <option value="Pets (Adoption)">Pets (Adoption)</option>
+                      <option value="Pet Food">Pet Food</option>
+                      <option value="Accessories">Accessories</option>
+                      <option value="Pet Care Products">
+                        Pet Care Products
+                      </option>
+                    </select>
+                  </div>
 
+                  {/* Price & Location */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="label font-medium mb-1.5">
-                        Category
+                      <label className="label text-base-content dark:text-base-100 font-medium">
+                        Price
                       </label>
-
-                      <select
-                        defaultValue={data.category}
-                        name="category"
-                        required
-                        className="select w-full focus:border-0 focus:outline-gray-200"
-                      >
-                        <option value="" disabled>
-                          Select category
-                        </option>
-
-                        <option value="Pets (Adoption)">Pets (Adoption)</option>
-
-                        <option value="Pet Food">Pet Food</option>
-
-                        <option value="Accessories">Accessories</option>
-
-                        <option value="Pet Care Products">
-                          Pet Care Products
-                        </option>
-                      </select>
-                    </div>
-
-                    <div className="flex gap-4">
-                      <div>
-                        {" "}
-                        {/* price */}
-                        <label className="label">Price</label>
-                        <input
-                          type="text"
-                          name="price"
-                          defaultValue={data.price}
-                          required
-                          className="input focus:border-0 w-full focus:outline-gray-200"
-                          placeholder="Enter Price"
-                        />
-                      </div>
-
-                      <div>
-                        {" "}
-                        {/* Location */}
-                        <label className="label">Location</label>
-                        <input
-                          type="text"
-                          name="location"
-                          defaultValue={data.location}
-                          required
-                          className="input w-full focus:border-0 focus:outline-gray-200"
-                          placeholder="Enter Location"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Description Textarea */}
-
-                    <div>
-                      <label className="label font-medium mb-1.5">
-                        Description
-                      </label>
-
-                      <textarea
-                        name="description"
-                        defaultValue={data.description}
-                        required
-                        rows="3"
-                        className="textarea w-full focus:border-0 focus:outline-gray-200 h-[120px]"
-                        placeholder="Enter description"
-                      ></textarea>
-                    </div>
-
-                    {/* Image URL */}
-
-                    <div>
-                      <label className="label font-medium mb-1.5">
-                        Image URL
-                      </label>
-
                       <input
-                        type="url"
-                        name="imageurl"
-                        defaultValue={data.image}
+                        type="text"
+                        name="price"
+                        defaultValue={data.price}
                         required
-                        className="input w-full focus:border-0 focus:outline-gray-200"
-                        placeholder="https://example.com/image.jpg"
+                        className="input input-bordered w-full focus:ring-2 focus:ring-primary dark:bg-gray-800 dark:text-base-100 dark:border-gray-600"
+                        placeholder="Enter Price"
                       />
                     </div>
+                    <div>
+                      <label className="label text-base-content dark:text-base-100 font-medium">
+                        Location
+                      </label>
+                      <input
+                        type="text"
+                        name="location"
+                        defaultValue={data.location}
+                        required
+                        className="input input-bordered w-full focus:ring-2 focus:ring-primary dark:bg-gray-800 dark:text-base-100 dark:border-gray-600"
+                        placeholder="Enter Location"
+                      />
+                    </div>
+                  </div>
 
+                  {/* Description */}
+                  <div>
+                    <label className="label text-base-content dark:text-base-100 font-medium">
+                      Description
+                    </label>
+                    <textarea
+                      name="description"
+                      defaultValue={data.description}
+                      required
+                      rows="4"
+                      className="textarea textarea-bordered w-full focus:ring-2 focus:ring-primary dark:bg-gray-800 dark:text-base-100 dark:border-gray-600"
+                      placeholder="Enter description"
+                    ></textarea>
+                  </div>
+
+                  {/* Image URL */}
+                  <div>
+                    <label className="label text-base-content dark:text-base-100 font-medium">
+                      Image URL
+                    </label>
                     <input
-                      type="submit"
-                      className="btn btn-primary mt-4"
-                      value="Update List"
+                      type="url"
+                      name="imageurl"
+                      defaultValue={data.image}
+                      required
+                      className="input input-bordered w-full focus:ring-2 focus:ring-primary dark:bg-gray-800 dark:text-base-100 dark:border-gray-600"
+                      placeholder="https://example.com/image.jpg"
                     />
-                  </fieldset>
+                  </div>
+
+                  {/* Submit Button */}
+                  <input
+                    type="submit"
+                    className="btn btn-primary w-full mt-4"
+                    value="Update List"
+                  />
                 </form>
 
-                <div className="modal-action">
+                {/* Modal Actions */}
+                <div className="modal-action mt-4">
                   <form method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
-
-                    <button className="btn">Close</button>
+                    <button className="btn btn-outline w-full sm:w-auto">
+                      Close
+                    </button>
                   </form>
                 </div>
               </div>

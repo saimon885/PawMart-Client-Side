@@ -19,8 +19,8 @@ const CategoryList = () => {
           className={({ isActive }) => 
             `px-6 py-2 rounded-full border-2 transition-all duration-300 font-medium
             ${isActive 
-              ? "bg-primary border-primary text-white shadow-lg scale-105" 
-              : "border-gray-200 hover:border-primary hover:text-primary bg-white text-gray-700"
+              ? "bg-primary border-primary  shadow-lg scale-105" 
+              : "border-gray-200 hover:border-primary hover:text-primary"
             }`
           }
         >
@@ -33,7 +33,7 @@ const CategoryList = () => {
 
 const Category = () => {
   const [text] = useTypewriter({
-    words: ["Your Favorite Category", "The Best Deals", "Top Collections"],
+    words: ["Your Favorite Category"],
     loop: true,
     typeSpeed: 250,
     deleteSpeed: 150,

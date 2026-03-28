@@ -8,7 +8,7 @@ const RecentCategoryData = () => {
   const Recentdata = useLoaderData();
   // console.log(Recentdata);
   const [recent, setRecent] = useState([]);
-  const fixedRecent = recent.slice(0, 6);
+  const fixedRecent = recent.slice(0, 8);
   // console.log(recent);
   // console.log(fixedRecent);
 

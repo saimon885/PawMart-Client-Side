@@ -21,9 +21,12 @@ import OrderHistory from "../Components/PaymentReleted/OrderHistory";
 import DashboardHome from "../AnotherPages/DashboardHome";
 import TotoalUsers from "../AnotherPages/TotoalUsers";
 import AboutUs from "../AnotherPages/AboutUs";
+import Allorder from "../AnotherPages/Allorder";
+import AdminPrivetRouter from "../Privetrouter/AdminPrivetRouter";
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter( [
   {
+    
     path: "/",
     errorElement: <Error404></Error404>,
     hydrateFallbackElement: <Loading></Loading>,
@@ -37,15 +40,14 @@ export const router = createBrowserRouter([
         path: "details/:id",
         loader: ({ params }) =>
           fetch(
-            `https://my-assignment-10-flax.vercel.app/petListdata/details/${params.id}`,
+            `https://my-assignment-10-lime.vercel.app/petListdata/details/${params.id}`,
           ),
         element: <ListingDetails></ListingDetails>,
       },
 
       {
         path: "allListData",
-        loader: () =>
-          fetch("https://my-assignment-10-flax.vercel.app/petListdata"),
+
         Component: AllListData,
       },
       {
@@ -70,7 +72,7 @@ export const router = createBrowserRouter([
       {
         path: "category/:name",
         loader: () =>
-          fetch("https://my-assignment-10-flax.vercel.app/petListdata"),
+          fetch("https://my-assignment-10-lime.vercel.app/homepetListdata"),
         hydrateFallbackElement: <Loading></Loading>,
         Component: RecentCategoryData,
       },
@@ -78,7 +80,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    Component: DashboardLayout,
+    element: (
+      <PrivetRouter>
+        <DashboardLayout></DashboardLayout>
+      </PrivetRouter>
+    ),
     children: [
       {
         index: true,
@@ -109,6 +115,14 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "TotalOrder",
+        element: (
+          <AdminPrivetRouter>
+            <Allorder></Allorder>
+          </AdminPrivetRouter>
+        ),
+      },
+      {
         path: "payment-success",
         Component: Success,
       },
@@ -122,7 +136,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "totalUsers",
-        Component: TotoalUsers,
+        element: (
+          <AdminPrivetRouter>
+            <TotoalUsers></TotoalUsers>
+          </AdminPrivetRouter>
+        ),
       },
       {
         path: "userpropile",

@@ -3,7 +3,7 @@ import { MdOutlinePets } from "react-icons/md";
 
 const Loading = () => {
   return (
-    <div className="min-h-[80vh] flex flex-col justify-center items-center bg-white">
+    <div className="min-h-[80vh] flex flex-col justify-center items-center ">
       <div className="relative flex justify-center items-center">
         {/* Outer Pulsing Ring */}
         <div className="absolute animate-ping h-16 w-16 rounded-full bg-slate-100 opacity-75"></div>
