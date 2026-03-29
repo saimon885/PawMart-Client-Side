@@ -14,7 +14,7 @@ const Error404 = () => {
 
   return (
     <div className="min-h-[90vh] flex items-center justify-center px-6 py-12 font-sans overflow-hidden">
-      <title>404 | Lost in the Woods</title>
+      <title>404 | Page not found</title>
 
       <div className="max-w-2xl w-full text-center">
         <div data-aos="zoom-in" className="relative mb-10">

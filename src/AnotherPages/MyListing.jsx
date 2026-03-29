@@ -10,6 +10,7 @@ import {
   MdPostAdd,
 } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Loading from "../Pages/Loading";
 
 const MyListing = () => {
   const { user } = use(AuthContext);
@@ -104,18 +105,15 @@ const MyListing = () => {
 
   if (loading) {
     return (
-      <div className="min-h-[80vh] flex flex-col justify-center items-center text-base-content">
-        <div className="relative">
-          <div className="absolute animate-ping h-16 w-16 rounded-full bg-base-300 opacity-75"></div>
-          <div className="h-14 w-14 rounded-full border-4 border-base-300 border-t-primary animate-spin"></div>
-          <MdOutlinePets className="absolute text-primary animate-bounce" />
-        </div>
+      <div>
+        <Loading></Loading>
       </div>
     );
   }
 
   return (
     <div className="py-6 md:py-10 px-4 ">
+      <title>PetBond - My Listings</title>
       <h1 className="text-center font-bold text-xl md:text-2xl mb-6 text-primary uppercase">
         My Listings
       </h1>

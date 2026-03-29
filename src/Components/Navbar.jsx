@@ -76,7 +76,7 @@ const Navbar = () => {
             <div className="flex items-center gap-2">
               <button
                 onClick={toggleTheme}
-                className="btn btn-ghost btn-circle btn-sm md:btn-md"
+                className="btn btn-ghost bg-base-200 btn-circle btn-sm md:btn-md"
               >
                 {theme === "light" ? (
                   <HiOutlineMoon size={20} />

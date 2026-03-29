@@ -24,9 +24,8 @@ import AboutUs from "../AnotherPages/AboutUs";
 import Allorder from "../AnotherPages/Allorder";
 import AdminPrivetRouter from "../Privetrouter/AdminPrivetRouter";
 
-export const router = createBrowserRouter( [
+export const router = createBrowserRouter([
   {
-    
     path: "/",
     errorElement: <Error404></Error404>,
     hydrateFallbackElement: <Loading></Loading>,

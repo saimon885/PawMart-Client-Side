@@ -24,7 +24,7 @@ const LowerSecendBanner = () => {
   return (
     <div className="max-w-6xl mx-auto py-16 px-4">
       <div data-aos="fade-up" className="text-center mb-12">
-        <h2 className="text-xl md:text-2xl font-bold  tracking-tight">
+        <h2 className="text-2xl md:text-3xl font-bold  tracking-tight">
           Meet Our Pet Heroes
         </h2>
         <p className="text-slate-500 mt-2 text-sm md:text-base">

@@ -11,11 +11,11 @@ import "aos/dist/aos.css";
 const Login = () => {
   const [show, setShow] = useState(false);
   const emailRef = useRef();
+  const passwordRef = useRef();
   const { LoginUser, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state || "/";
-  // console.log(location, navigate, from);
 
   useEffect(() => {
     Aos.init({ duration: 800, once: true });
@@ -54,12 +54,25 @@ const Login = () => {
             toast.success("Welcome to PetBond!");
             navigate(from, { replace: true });
           })
-          .catch((err) => {
-            console.error("DB Error:", err);
+          .catch(() => {
             navigate(from, { replace: true });
           });
       })
       .catch(() => toast.error("Failed to sign in with Google"));
+  };
+
+  const handleDemoLogin = (email, password) => {
+    if (emailRef.current && passwordRef.current) {
+      emailRef.current.value = email;
+      passwordRef.current.value = password;
+    }
+
+    LoginUser(email, password)
+      .then(() => {
+        toast.success("Demo login successful!");
+        navigate(from, { replace: true });
+      })
+      .catch(() => toast.error("Demo login failed"));
   };
 
   return (
@@ -82,6 +95,21 @@ const Login = () => {
           </p>
         </div>
 
+        <div className="grid grid-cols-2 gap-3 mb-5">
+          <button
+            onClick={() => handleDemoLogin("admin@gmail.com", "Admin@123")}
+            className="py-2 text-xs font-bold rounded-xl bg-primary text-white hover:opacity-90 transition-all"
+          >
+            Admin Demo
+          </button>
+          <button
+            onClick={() => handleDemoLogin("user@gmail.com", "User@123")}
+            className="py-2 text-xs font-bold rounded-xl bg-secondary text-white hover:opacity-90 transition-all"
+          >
+            User Demo
+          </button>
+        </div>
+
         <form onSubmit={handleLogin} className="space-y-4 relative z-10">
           <div className="space-y-1.5">
             <label className="text-xs font-bold uppercase tracking-widest ml-1 text-base-content/50">
@@ -102,17 +130,12 @@ const Login = () => {
               <label className="text-xs font-bold uppercase tracking-widest text-base-content/50">
                 Password
               </label>
-              {/* <Link
-                to="/reset"
-                className="text-[10px] font-bold text-error hover:underline uppercase"
-              >
-                Forgot?
-              </Link> */}
             </div>
             <div className="relative">
               <input
                 type={show ? "text" : "password"}
                 name="password"
+                ref={passwordRef}
                 required
                 className="w-full px-4 py-3 bg-base-100 border border-base-300 rounded-xl focus:border-primary outline-none transition-all text-sm font-medium"
                 placeholder="••••••••"

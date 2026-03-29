@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthContext";
 import { MdOutlineReceipt, MdOutlinePets } from "react-icons/md";
 import { FiArrowUpRight } from "react-icons/fi";
+import Loading from "../../Pages/Loading";
 
 const OrderHistory = () => {
   const { user } = useContext(AuthContext);
@@ -13,6 +14,11 @@ const OrderHistory = () => {
       setIsLoading(true);
       fetch(
         `https://my-assignment-10-lime.vercel.app/payments?email=${user?.email}`,
+        {
+          headers: {
+            authorization: `Bearer ${user.accessToken}`,
+          },
+        },
       )
         .then((res) => res.json())
         .then((data) => {
@@ -26,28 +32,15 @@ const OrderHistory = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-[80vh] flex flex-col justify-center items-center bg-base-200 dark:bg-base-300">
-        <div className="relative flex justify-center items-center">
-          <div className="absolute animate-ping h-16 w-16 rounded-full bg-base-300 opacity-75 dark:bg-base-400"></div>
-          <div className="h-14 w-14 rounded-full border-4 border-base-300 border-t-primary animate-spin"></div>
-          <div className="absolute text-primary dark:text-secondary animate-bounce">
-            <MdOutlinePets size={28} />
-          </div>
-        </div>
-        <div className="mt-6 flex flex-col items-center gap-1">
-          <h3 className="text-sm font-bold tracking-[0.3em] uppercase text-base-content animate-pulse">
-            Loading
-          </h3>
-          <p className="text-[12px] text-base-content/50 font-medium">
-            Fetching your transaction history...
-          </p>
-        </div>
+      <div>
+        <Loading></Loading>
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-base-200 dark:bg-base-300 p-4 md:p-8 font-sans">
+      <title>PetBond - Payment History</title>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">

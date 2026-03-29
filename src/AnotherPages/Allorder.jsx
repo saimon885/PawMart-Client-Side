@@ -22,7 +22,11 @@ const Allorder = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://my-assignment-10-lime.vercel.app/orders`, {})
+    fetch(`https://my-assignment-10-lime.vercel.app/orders`, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setOrder(data);
@@ -159,7 +163,7 @@ const Allorder = () => {
   return (
     <div>
       <div className="mx-5 py-10 min-h-screen relative ">
-        <title>PetBond - My Orders</title>
+        <title>PetBond - Total Orders</title>
 
         <div className="absolute inset-0 pointer-events-none opacity-5 z-0">
           <FaDog className="absolute top-10 left-10 text-[150px] -rotate-12 text-secondary" />
@@ -168,7 +172,7 @@ const Allorder = () => {
 
         <div className="relative z-10">
           <h1 className="text-center font-bold text-2xl mb-5 text-primary">
-            My Orders
+            Total Orders
           </h1>
 
           {order.length === 0 ? (

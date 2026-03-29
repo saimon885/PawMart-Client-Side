@@ -9,7 +9,7 @@ const LowerFirstBanner = () => {
   const [head_text] = useTypewriter({
     words: ["Adopt from PawMart?"],
     loop: {},
-   typeSpeed: 200,
+    typeSpeed: 200,
     deleteSpeed: 100,
   });
 
@@ -23,7 +23,7 @@ const LowerFirstBanner = () => {
   return (
     <div className="max-w-6xl mx-auto py-16 px-4 overflow-hidden">
       <div className="text-center mb-12">
-        <h2 className="text-2xs md:text-2xl font-semibold">
+        <h2 className="text-2xl md:text-3xl font-semibold">
           Why {head_text}
           <Cursor cursorColor="#ef4444" />
         </h2>
@@ -44,7 +44,9 @@ const LowerFirstBanner = () => {
                 <MdOutlinePets size={24} />
               </div>
               <div className="pr-4">
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-tighter">Impact</p>
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-tighter">
+                  Impact
+                </p>
                 <p className="text-sm font-bold text-slate-800">100+ Rescued</p>
               </div>
             </div>
@@ -54,11 +56,15 @@ const LowerFirstBanner = () => {
         <div data-aos="fade-left" className="space-y-8">
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-slate-500 leading-tight">
-              Adopt, Don't Shop: <span className="text-slate-500 font-medium">Rescue a Hero Today</span>
+              Adopt, Don't Shop:{" "}
+              <span className="text-slate-500 font-medium">
+                Rescue a Hero Today
+              </span>
             </h3>
             <p className="text-slate-600 leading-relaxed text-base italic border-l-4 border-slate-100 pl-4">
-              Every year, millions of healthy animals find themselves homeless. Choosing to rescue
-              instead of buying helps change the world for them.
+              Every year, millions of healthy animals find themselves homeless.
+              Choosing to rescue instead of buying helps change the world for
+              them.
             </p>
           </div>
 
@@ -70,7 +76,8 @@ const LowerFirstBanner = () => {
               <div>
                 <h4 className="font-bold  mb-1">You Save a Life</h4>
                 <p className="text-sm text-slate-500 leading-snug">
-                  Give a deserving animal a loving second chance and free up space for another pet in need.
+                  Give a deserving animal a loving second chance and free up
+                  space for another pet in need.
                 </p>
               </div>
             </div>
@@ -82,7 +89,8 @@ const LowerFirstBanner = () => {
               <div>
                 <h4 className="font-bold  mb-1">You Fight Cruelty</h4>
                 <p className="text-sm text-slate-500 leading-snug">
-                  Stop supporting commercial breeding industries that prioritize profit over animal welfare.
+                  Stop supporting commercial breeding industries that prioritize
+                  profit over animal welfare.
                 </p>
               </div>
             </div>
@@ -94,7 +102,8 @@ const LowerFirstBanner = () => {
               <div>
                 <h4 className="font-bold  mb-1">You Get a Great Pet</h4>
                 <p className="text-sm text-slate-500 leading-snug">
-                  Adopted pets often come vaccinated and microchipped, rewarding your kindness with unique love.
+                  Adopted pets often come vaccinated and microchipped, rewarding
+                  your kindness with unique love.
                 </p>
               </div>
             </div>

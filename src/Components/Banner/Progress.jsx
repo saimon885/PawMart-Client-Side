@@ -29,12 +29,12 @@ const StatisticsSection = () => {
 
   const stats = [
     { label: "Statistics", value: 58 },
-    { label: "Statistics", value: 76 },
-    { label: "Statistics", value: 64 },
+    { label: "satisfied", value: 76 },
+    { label: "Happy", value: 64 },
   ];
 
   return (
-    <div data-aos="fade-up" className="bg-[#73C8DD] w-full">
+    <div data-aos="fade-up" className="bg-secondary w-full">
       <section
         ref={sectionRef}
         className=" py-16 px-6 md:px-12 lg:px-24 min-h-[500px] flex items-center relative overflow-hidden"

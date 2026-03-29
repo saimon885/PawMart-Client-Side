@@ -19,6 +19,8 @@ import { AuthContext } from "../AuthProvider/AuthContext";
 import { toast } from "react-toastify";
 import { TbShoppingCartPlus } from "react-icons/tb";
 import ScrollToTop from "../ScrollToTop";
+import { Home, HomeIcon } from "lucide-react";
+import { AiOutlineHome } from "react-icons/ai";
 
 const DashboardLayout = ({ children }) => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -47,9 +49,7 @@ const DashboardLayout = ({ children }) => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(
-        `https://my-assignment-10-lime.vercel.app/users?email=${user?.email}`,
-      )
+      fetch(`https://my-assignment-10-lime.vercel.app/users?email=${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           if (Array.isArray(data) && data.length > 0) {
@@ -91,11 +91,20 @@ const DashboardLayout = ({ children }) => {
               <HiOutlineMenuAlt2 className="text-base-content text-2xl" />
             </label>
           </div>
+          <div className=" ml-3 flex items-center gap-2 px-3 py-2.5 rounded-2xl bg-gradient-to-r from-primary/10 to-secondary/10 md:border border-base-300 shadow-md">
+            <span className="text-primary text-sm font-extrabold uppercase tracking-widest">
+              {role}
+            </span>
+            <div className="w-[1px] h-5 bg-base-300"></div>
+            <span className="text-base font-bold text-base-content">
+              Dashboard
+            </span>
+          </div>
 
-          <div className="flex w-full justify-end items-center gap-2 ml-auto">
+          <div className="flex  w-full justify-end items-center gap-2 ml-auto">
             <button
               onClick={toggleTheme}
-              className="btn btn-ghost btn-circle text-base-content"
+              className="btn btn-ghost btn-circle bg-base-200 border text-base-content"
             >
               {theme === "light" ? (
                 <HiOutlineMoon className="text-2xl" />
@@ -144,9 +153,7 @@ const DashboardLayout = ({ children }) => {
           </div>
         </header>
 
-        <main className="p-4 md:p-6 flex-1">
-          {children || <Outlet />}
-        </main>
+        <main className="p-4 md:p-6 flex-1">{children || <Outlet />}</main>
       </div>
 
       {/* --- Sidebar --- */}
@@ -160,6 +167,11 @@ const DashboardLayout = ({ children }) => {
           <ul className="menu px-6 py-0 grow gap-2">
             <li className="menu-title text-base-content/50 font-bold text-[11px] tracking-widest mb-4 opacity-70">
               Menu
+            </li>
+            <li>
+              <Link to={"/dashboard"} className={getActiveStyles("/dashboard")}>
+                <AiOutlineHome className="text-lg" /> Home
+              </Link>
             </li>
 
             {role === "admin" && (

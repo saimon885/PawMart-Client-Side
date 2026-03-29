@@ -11,6 +11,7 @@ import { FaHandHoldingUsd, FaDog, FaCat, FaPaw } from "react-icons/fa";
 import { GiRabbit } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import Loading from "../Pages/Loading";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
@@ -141,19 +142,8 @@ const MyOrders = () => {
 
   if (loading) {
     return (
-      <div className="min-h-[80vh] flex flex-col justify-center items-center bg-base-100 dark:bg-base-200">
-        <div className="relative flex justify-center items-center">
-          <div className="absolute animate-ping h-16 w-16 rounded-full bg-base-200 dark:bg-base-700 opacity-75"></div>
-          <div className="h-14 w-14 rounded-full border-4 border-base-200 border-t-primary animate-spin"></div>
-          <div className="absolute text-primary animate-bounce">
-            <MdOutlinePets size={24} />
-          </div>
-        </div>
-        <div className="mt-6 flex flex-col items-center">
-          <h3 className="text-sm font-bold tracking-[0.3em] uppercase animate-pulse">
-            Loading
-          </h3>
-        </div>
+      <div>
+        <Loading></Loading>
       </div>
     );
   }

@@ -6,7 +6,7 @@ import {
   MdLocalGroceryStore,
   MdCalendarMonth,
 } from "react-icons/md";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthContext";
 import { toast } from "react-toastify";
@@ -21,6 +21,8 @@ import { FeedbackPage } from "./FeedbackPage";
 const SingleListingDetails = ({ data }) => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const locationHook = useLocation();
+
   const {
     category,
     date,
@@ -32,6 +34,7 @@ const SingleListingDetails = ({ data }) => {
     location,
     price,
   } = data;
+
   const ModlaRef = useRef(null);
 
   useEffect(() => {
@@ -40,7 +43,7 @@ const SingleListingDetails = ({ data }) => {
 
   const handleOrderClick = () => {
     if (!user) {
-      navigate("/login");
+      navigate("/login", { state: locationHook.pathname });
       return;
     }
     ModlaRef.current.showModal();
@@ -49,6 +52,7 @@ const SingleListingDetails = ({ data }) => {
   const handleOrder = async (e) => {
     e.preventDefault();
     const form = e.target;
+
     const NewOrder = {
       buyerName: form.name.value,
       productName: form.productname.value,
@@ -66,7 +70,9 @@ const SingleListingDetails = ({ data }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(NewOrder),
     });
+
     const result = await res.json();
+
     if (result.insertedId) {
       frame(3);
       ModlaRef.current.close();

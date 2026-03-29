@@ -43,7 +43,7 @@ const Category = () => {
   return (
     <section className="my-12 px-4 max-w-6xl mx-auto">
       <div className="text-center mb-10">
-        <h2 className="text-xl md:text-2xl font-semibold tracking-tight">
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
           Select <span className="text-primary">{text}</span>
           <Cursor cursorColor="#your-primary-color" />
         </h2>

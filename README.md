@@ -1,123 +1,155 @@
-![My GitHub Banner](https://i.ibb.co.com/4gKXkjgF/Screenshot-2025-11-19-161129.png)
+![My GitHub Banner](https://i.ibb.co.com/MDFjB08j/Screenshot-2026-03-29-130334.png)
+
 # 🐾 PetBond – Friendship Between Pets & Humans
 
 🔗 **Live Website:** https://petbond-project.netlify.app/
 
-PetBond is a modern pet marketplace web application where users can **buy, sell, and explore pet products and pets**, building a strong bond between pets and humans.
+PetBond is a **modern full-stack pet marketplace platform** where users can explore, buy, and sell pets and pet-related products. The platform is designed to create a meaningful connection between pets and humans while providing a seamless and user-friendly experience.
 
 ---
 
-## 🚀 Features
+## 🚀 Key Features
 
-- 🐶 Buy & Sell pet products and pets
-- 🔐 Authentication (Login / Register required for full access)
-- 🌗 Dark & Light Mode
-- 🔍 Search pets & products easily
-- 🗂 Category-based product listing
-- 🛒 Order & cancel products
-- ➕ Add, ✏️ Update & ❌ Delete own listings
-- 📦 My Orders & My Listings dashboard
-- 🎨 Modern UI with smooth animations
+### 🔐 Authentication & Authorization
+
+- Secure login & registration using Firebase
+- Role-based system:
+  - 👤 **User**
+  - 🛠 **Admin**
+- Protected routes for sensitive pages
 
 ---
 
-## 🧭 Navbar Overview
+## 🧭 Navbar
 
-- **Left:** Website Logo  
-- **Middle:** Navigation Routes  
-- **Right:**  
-  - Dark / Light Mode toggle  
-  - Login & Register buttons  
-  - User profile (after login)
-
-⚠️ Full website access is available **only after login or registration**.
+- Website Logo (redirects to home)
+- Navigation Routes
+- Dark 🌙 / Light ☀️ Mode toggle
+- Login / Register
+- User Profile (after login)
 
 ---
 
-## 🏠 Home Page Overview
+## 🏠 Home Page Sections
 
-The Home page includes:
-
-- 🔹 Responsive Navbar  
-- 🎞 Three interactive banner sliders  
-- 🐾 Pet & product information  
-- 📂 Category-wise product display  
-- ❤️ Pet care & responsibility section  
-- 👥 People who serve pets showcase  
-- 📌 Reusable Footer  
+- 🎞 Interactive Banner Slider
+- 📂 Category Section
+- 🧩 Category-wise Data Display
+- 🐾 **Why Adopt from PawMart?** Section
+- 📊 Progress / Stats Section
+- 👥 Meet Our Pet Heroes
+- ℹ️ About Us Section
+- 📌 Footer
 
 ---
 
 ## 🐕 Pets & Supplies Page
 
-- 🖼 Product cards with:
+- 📦 Product Listings from Backend
+- 🔍 Search Functionality
+- ⚙️ Sorting System
+- 📄 Pagination (Server-side)
+- 🖼 Product Cards:
   - Image
   - Name
-  - Short description
-- 🔍 Search bar to find desired products
-- 🔎 **Details Button** shows full product info
-- 🛍 **Order Now** button opens a modal to confirm purchase
+  - Description
+- 🔎 View Details
+- 🛒 Order Product
 
 ---
 
-## ➕ Add Listing Page (Protected)
+## 📄 About Us Page
 
-- Only accessible for logged-in users
-- Users can:
-  - Add pet or product for selling
-  - Provide category, price, location & details
-
----
-
-## 📋 My Listings Page (Protected)
-
-- Displays all products added by the user
-- Shows:
-  - Product name
-  - Category
-  - Location
-- Actions:
-  - ✏️ Update product
-  - ❌ Delete product
+- 🖼 Banner Section
+- 📝 Detailed Description
+- ⭐ Client Reviews
 
 ---
 
-## 🛒 My Orders Page (Protected)
+## 📊 Dashboard (Role-Based)
 
-- Displays all ordered products
-- Users can:
-  - View full order details
-  - ❌ Cancel orders if needed
+### 👤 User Dashboard
+
+- Welcome Message
+- ➕ Add Listing
+- 📋 My Listings
+- 🛒 My Orders
+- 💳 Payment History
+
+#### User Actions:
+
+- Add product/pet
+- Update listing
+- Delete listing
+- Place orders
+- Make payments:
+  - 💳 Stripe Payment
+  - 💵 Cash on Delivery
 
 ---
 
-## 🔐 Authentication & Security
+### 🛠 Admin Dashboard
 
-- Firebase Authentication
-- Protected Routes for:
-  - Add Listing
-  - My Listings
-  - My Orders
+- Welcome Message
+- 📊 Overview Cards:
+  - Total Users
+  - Total Orders
+  - Pipeline / Stats Data (visual cards)
+
+---
+
+## 🌗 Theme Support
+
+- Full system supports:
+  - 🌞 Light Mode
+  - 🌙 Dark Mode
+- Available in:
+  - Navbar
+  - Dashboard
 
 ---
 
 ## 🛠 Technologies Used
 
-### Frontend
-- React
+### 💻 Frontend
+
+- React.js
 - React Router
 - Tailwind CSS
 - DaisyUI
 - React Icons
 
-### Libraries & Tools
-- Firebase
-- AOS
-- Swiper
-- React Toastify
-- SweetAlert2
-- React Simple Typewriter
-- Typewriter Effect
+### ⚙️ Backend & Services
+
+- Node.js (API)
+- Express.js
+- MongoDB
+- Firebase Token
+
+### 💳 Payment
+
+- Stripe Integration
+- Cash on Delivery
+
+### 📚 Libraries & Tools
+
+- aos
+- swiper
+- react-toastify
+- sweetalert2
+- typewriter-effect
+- canvas-confetti
+- date-fns
+- firebase
+- html2canvas
+- jspdf
+- jspdf-autotable
+- lucide-react
+- react-icons
+- react-simple-typewriter
+- react-to-print
+- react-zoom-pan-pinch
+- recharts
 
 ---
 
@@ -128,3 +160,4 @@ git clone https://github.com/your-username/petbond-client.git
 cd petbond-client
 npm install
 npm run dev
+```

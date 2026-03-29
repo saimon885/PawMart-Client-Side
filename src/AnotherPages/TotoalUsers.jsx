@@ -91,6 +91,7 @@ const TotalUsers = () => {
 
   return (
     <div className="max-w-7xl mx-auto mt-6 md:mt-10 p-4 md:p-6 bg-base-100 shadow-xl rounded-2xl text-base-content">
+      <title>PetBond - Total Users</title>
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between gap-4 md:items-center mb-6 border-b border-base-300 pb-4">
         <div>
